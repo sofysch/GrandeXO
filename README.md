@@ -1,1 +1,1 @@
-Ciao, così inizia.
+Ciao, si continua.
