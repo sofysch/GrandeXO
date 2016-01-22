@@ -10,7 +10,12 @@ Perinteisess‰ versiossa tavoitteena on saada kolme risti‰ tai ympyr‰‰ samalle
 
 pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa . Isommassa versiossa  on suurempi ruudukko ja 
 
-tavoitteena viisi risti‰/ympyr‰‰ samalle riville.
+tavoitteena viisi risti‰/ympyr‰‰ samalle riville. Pelaaja valitsee pelattavan version
+
+ja haluaako aloittaa pelin vai antaako koneen aloittaa. Pelattujen pelien m‰‰r‰ tallentuu, samoin pelaajan ja tietokoneen voittojen m‰‰r‰.
+
+
+
 
 **K‰ytt‰j‰t** 
 
@@ -22,7 +27,7 @@ tavoitteena viisi risti‰/ympyr‰‰ samalle riville.
 - Valitsee haluaako aloittaa
 - Merkitsee ristin / ympyr‰n haluamaansa ruutuun
 - Aloittaa uuden pelin
-- Keskeytt‰‰ pelin
+
 
 
 
