@@ -1,7 +1,7 @@
 ## Tuntikirjanpito
 
-**Ke 20.1.16**
-1h Gitin asentelua 
+**Ke 20.1.16**\n
+1h Gitin asentelua\n
 Pajassa 2h Gitin asentelua ja opettelua
 
 **To 21.1.16**
@@ -10,7 +10,7 @@ GitShell ei reagoinut. Poistin ja asensin toista kautta, nyt toimii, on Git Bash
 Kaikki asentelu ja NetBeans -projektin luonti uusiksi, virheitä ja niistä oppimista...
 
 
-**Pe 22.1.16**
+**Pe 22.1.16**\n
 Aloitin tuntikirjanpidon
 
 
