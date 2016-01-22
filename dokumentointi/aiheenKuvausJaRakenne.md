@@ -9,11 +9,11 @@ Peliä voi pelata perinteisesti 3x3 -kokoisella ruudukolla tai vaihtoehtoisesti s
 
 
 
-**Käyttäjät :** 
+**Käyttäjät:** 
 
 - Pelaaja
 
-**Käyttäjän toiminnot: **
+**Käyttäjän toiminnot:**
 
 - Valitsee pelattavan pelin: pieni / suuri ruudukko
 - Valitsee haluaako aloittaa
