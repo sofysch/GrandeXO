@@ -9,8 +9,8 @@
 
 **To 21.1.16**
 
-Liian monta tuntia (~4?): ohjeiden linkist‰ omalle koneelle lataamani Git ei en‰‰ toiminut -
-GitShell ei reagoinut. Poistin ja asensin toista kautta, nyt toimii kun on Git Bash.
+Liian monta tuntia (yhteens‰ ~5?): ohjeiden linkist‰ omalle koneelle lataamani Git ei en‰‰ toiminut -
+GitShell ei reagoinut. Googlailin tietoa ja ohjeita, poistin ja asensin uudelleen, en GitHub Desktopia. Nyt toimii kun on Git Bash, ei Git Shell.
 Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdollisia virheit‰ ja niist‰ oppimista.
 
 
