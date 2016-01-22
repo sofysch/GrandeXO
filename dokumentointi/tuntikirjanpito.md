@@ -2,19 +2,25 @@
 
 **Ke 20.1.16**
 
-1h Gitin asentelua
+3h
 
-Pajassa 2h Gitin asentelua ja opettelua
+- Gitin asentelua
+
+- Pajassa Gitin asentelua ja siihen tutustumista
 
 **To 21.1.16**
 
-Liian monta tuntia: ohjeiden linkist‰ omalle koneelle lataamani Git ei en‰‰ toiminut -
-GitShell ei reagoinut. Poistin ja asensin toista kautta, nyt toimii, on Git Bash.
-Kaikki asentelu ja NetBeans -projektin luonti uusiksi, virheit‰ ja niist‰ oppimista...
+Liian monta tuntia (~4 ?): ohjeiden linkist‰ omalle koneelle lataamani Git ei en‰‰ toiminut -
+GitShell ei reagoinut. Poistin ja asensin toista kautta, nyt toimii kun on Git Bash.
+Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdollisia virheit‰ ja niist‰ oppimista.
 
 
 **Pe 22.1.16**
 
-Aloitin tuntikirjanpidon
+2h
+
+- Gitin s‰‰t‰mist‰ ja opettelua
+- Aiheen kuvauksen kirjoittaminen 
+
 
 
