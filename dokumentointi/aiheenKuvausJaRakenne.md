@@ -1,18 +1,28 @@
 ## Aiheen kuvaus ja rakenne
 
-**Aihe**: Ristinolla. Toteutetaan siis Ristinolla-peli kahdelle pelaajalle.
+**Aihe**: Ristinolla. 
 
-Tavoitteena on siis saada perinteisess‰ versiossa kolme risti‰ tai ympyr‰‰ samalle
+Toteutetaan siis Ristinolla-peli. 
 
-pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa . Isommassa versiossa (J‰tk‰nshakissa) on suurempi ruudukko ja 
+Peli‰ voi pelata perinteisesti 3x3 -kokoisella ruudukolla tai vaihtoehtoisesti suuremmalla ruudukolla.
 
-tavoitteena viisi merkki‰ samalle riville.
+Perinteisess‰ versiossa tavoitteena on saada kolme risti‰ tai ympyr‰‰ samalle
+
+pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa . Isommassa versiossa  on suurempi ruudukko ja 
+
+tavoitteena viisi risti‰/ympyr‰‰ samalle riville.
 
 **K‰ytt‰j‰t** 
 
-Pelaaja
+- Pelaaja
 
 **K‰ytt‰j‰n toiminnot**
+
+- Valitsee pelattavan pelin: pieni / suuri ruudukko
+- Valitsee haluaako aloittaa
+- Merkitsee ristin / ympyr‰n haluamaansa ruutuun
+- Aloittaa uuden pelin
+- Keskeytt‰‰ pelin
 
 
 
