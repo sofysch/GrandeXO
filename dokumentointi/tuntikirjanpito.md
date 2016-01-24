@@ -23,4 +23,6 @@ Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdolli
 - Otm:n kertausta 
 
 
+**Su 23.1.**
 
+15 min Luokkakaavion hahmottelua
