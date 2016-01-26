@@ -23,6 +23,18 @@ Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdolli
 - Otm:n kertausta 
 
 
-**Su 23.1.**
+**Su 24.1.**
 
 15 min Luokkakaavion hahmottelua
+
+**Ma 25.1.**
+
+1h
+30 min luokkakaavion suunnittelua, koodaamisen aloittaminen
+30 min OTM:n kertausta
+
+**Ti 26.1.**
+
+2h
+Luokkien luomista, suunnittelua ja koodia
+
