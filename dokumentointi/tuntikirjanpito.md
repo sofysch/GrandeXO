@@ -40,7 +40,8 @@ Luokkien luomista, suunnittelua ja koodia
 
 **Ke 27.1.**
 
-1h Pajassa luokkakaavion tekemistä ja koodausta
+1h Pajassa luokkakaavion tekemistä ja 
+
 3h Maven-ongelman selvittelyä
 
 **To 28.1.**
