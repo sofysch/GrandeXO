@@ -22,5 +22,5 @@ Peliä voi pelata perinteisesti 3x3 -kokoisella ruudukolla tai vaihtoehtoisesti s
 
 
 
-![Luokkakaavio](GrandeXO/XOLuokkakaavio.png)
+![Luokkakaavio](http://yuml.me/ed2bdf34)
 
