@@ -38,3 +38,15 @@ Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdolli
 2h
 Luokkien luomista, suunnittelua ja koodia
 
+**Ke 27.1.**
+
+1h Pajassa luokkakaavion tekemistä ja koodausta
+3h Maven-ongelman selvittelyä
+
+**To 28.1.**
+
+4h Pelin rakenteen miettimistä, testien koodausta, OTM:n kertausta
+
+**Pe 29.1.**
+
+4h Luokkien koodausta ja muutaman testin koodausta, OTM:n kertausta, luokkakaavion viimeistely
