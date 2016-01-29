@@ -31,6 +31,7 @@ Kaikki asentelu ja NetBeans -projektin luonti uusiksi, paljon erilaisia mahdolli
 
 1h
 30 min luokkakaavion suunnittelua, koodaamisen aloittaminen
+
 30 min OTM:n kertausta
 
 **Ti 26.1.**
@@ -46,8 +47,8 @@ Luokkien luomista, suunnittelua ja koodia
 
 **To 28.1.**
 
-4h Pelin rakenteen miettimistä, testien koodausta, OTM:n kertausta
+5h Pelin rakenteen miettimistä, testien koodausta, OTM:n kertausta
 
 **Pe 29.1.**
 
-4h Luokkien koodausta ja muutaman testin koodausta, OTM:n kertausta, luokkakaavion viimeistely
+5h Luokkien koodausta ja muutaman testin koodausta, OTM:n kertausta, luokkakaavion viimeistely
