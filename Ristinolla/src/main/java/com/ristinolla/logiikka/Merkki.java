@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ristinolla.ristinolla.logiikka;
+package com.ristinolla.logiikka;
 
 /**
  *
  * @author Sofia
  */
-public class Peli {
-    
-    
-    public Peli (){
-        
-    }
+public enum Merkki {
+    RISTI, NOLLA, TYHJA
 }
