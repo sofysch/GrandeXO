@@ -28,7 +28,16 @@ public class Ruudukko {
     }
 
     public void setMerkki(int rivi, int sarake, Merkki merkki) {
-        this.ruudukko[rivi][sarake].setMerkki(merkki);
+        if (merkki != Merkki.TYHJA){
+            this.ruudukko[rivi][sarake].setMerkki(merkki);
+        }
+    }
+    public void tyhjenna(){
+        for (int rivi = 0; rivi < this.riveja; rivi++) {
+            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
+                this.ruudukko[rivi][sarake].tyhjenna();
+            }
+        }
     }
 
     public Merkki ruudunTila(int rivi, int sarake) {
@@ -55,5 +64,24 @@ public class Ruudukko {
 
         return false;
     }
-
+    public boolean onTaynna(){
+        for (int rivi = 0; rivi < this.riveja; rivi++) {
+            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
+                if (this.ruudukko[rivi][sarake].getTila()==(Merkki.TYHJA)){
+                    return false;
+                }
+            }
+    }
+        return true;
+    }
+    public int getRivit(){
+            return this.riveja;
+        }
+    public int getSarakkeita(){
+        return this.sarakkeita;
+    }
+    public Ruutu getRuutu(int rivi, int sarake){
+        return this.ruudukko[rivi][sarake];
+    }
+    
 }
