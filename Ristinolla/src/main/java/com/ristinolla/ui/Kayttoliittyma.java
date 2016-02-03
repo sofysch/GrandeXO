@@ -10,18 +10,7 @@ package com.ristinolla.ui;
  * @author Sofia
  */
 import com.ristinolla.logiikka.Peli;
-public class RistinollaMain {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Peli peli = new Peli();
-        peli.init();
-        
-        
-        // TODO code application logic here
-    }
-}
+public class Kayttoliittyma {
     
-
+}

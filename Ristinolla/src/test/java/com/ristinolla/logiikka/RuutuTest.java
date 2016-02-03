@@ -45,7 +45,7 @@ public class RuutuTest {
     //
     @Test
     public void konstruktoriLuoSijainninOikein() {
-        assertEquals("1,2", ruutu.getSijainti());
+        assertEquals("1, 2", ruutu.getSijainti());
     }
 
     @Test

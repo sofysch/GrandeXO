@@ -5,6 +5,9 @@
  */
 package com.ristinolla.logiikka;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Sofia
@@ -14,6 +17,7 @@ public class Ruudukko {
     private int riveja;
     private int sarakkeita;
     private Ruutu[][] ruudukko;
+    
 
 //    Luodaan ruudukko, joka koostuu Ruutu -luokan olioista.
     public Ruudukko() {
@@ -27,24 +31,36 @@ public class Ruudukko {
         }
     }
 
-    public void setMerkki(int rivi, int sarake, Merkki merkki) {
-        if (merkki != Merkki.TYHJA){
+    public void setMerkki(Koordinaatit koordinaatit, Merkki merkki) {
+        int rivi = koordinaatit.getX();
+        int sarake = koordinaatit.getY();
+        if (merkki != Merkki.TYHJA) {
             this.ruudukko[rivi][sarake].setMerkki(merkki);
+
         }
     }
-    public void tyhjenna(){
+
+    public boolean tyhjenna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
                 this.ruudukko[rivi][sarake].tyhjenna();
+                if (this.ruudukko[rivi][sarake].getTila() != (Merkki.TYHJA)) {
+                    return false;
+                }
             }
         }
+        return true;
     }
 
-    public Merkki ruudunTila(int rivi, int sarake) {
+    public Merkki ruudunTila(Koordinaatit koordinaatit) {
+        int rivi = koordinaatit.getX();
+        int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake].getTila();
     }
 
-    public boolean voitto(Merkki merkki, int rivi, int sarake) {
+    public boolean voitto(Merkki merkki, Koordinaatit koordinaatit) {
+        int rivi= koordinaatit.getX();
+        int sarake = koordinaatit.getY();
         if (merkki != Merkki.TYHJA) {
             if (this.ruudukko[rivi][0].getTila() == merkki
                     && this.ruudukko[rivi][1].getTila() == merkki
@@ -61,27 +77,32 @@ public class Ruudukko {
                 return true;
             }
         }
-
         return false;
     }
-    public boolean onTaynna(){
+
+    public boolean onTaynna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
-                if (this.ruudukko[rivi][sarake].getTila()==(Merkki.TYHJA)){
+                if (this.ruudukko[rivi][sarake].getTila() == (Merkki.TYHJA)) {
                     return false;
                 }
             }
-    }
+        }
         return true;
     }
-    public int getRivit(){
-            return this.riveja;
-        }
-    public int getSarakkeita(){
+
+public int getRivit() {
+        return this.riveja;
+    }
+
+    public int getSarakkeita() {
         return this.sarakkeita;
     }
-    public Ruutu getRuutu(int rivi, int sarake){
+
+    public Ruutu getRuutu(Koordinaatit koordinaatit) {
+        int rivi= koordinaatit.getX();
+        int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake];
     }
-    
+
 }

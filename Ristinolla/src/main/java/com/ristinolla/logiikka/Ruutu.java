@@ -24,7 +24,7 @@ public class Ruutu {
     }
 
     public String getSijainti(){
-        return this.sijainti.getKoordinaatit();
+        return this.sijainti.getX() + ", " + this.sijainti.getY();
     }
     
     public boolean onTyhja() {
@@ -45,8 +45,11 @@ public class Ruutu {
             } else if (merkki==(Merkki.NOLLA)) {
                 this.tila = Merkki.NOLLA;
             }
+        }else{
+            System.out.println("Ruudussa on jo " + getTila());
         }
     }
+    
     
 
 

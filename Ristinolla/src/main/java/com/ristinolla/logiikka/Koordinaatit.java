@@ -23,10 +23,5 @@ public class Koordinaatit {
     public int getY(){
         return this.y;
     }
-    public String getKoordinaatit(){
-        return this.x + "," + this.y;
-    }
-        
-    
     
 }

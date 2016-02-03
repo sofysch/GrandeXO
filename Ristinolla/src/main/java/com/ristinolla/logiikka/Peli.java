@@ -10,6 +10,8 @@ package com.ristinolla.logiikka;
  * @author Sofia
  */
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Peli {
 
@@ -25,40 +27,64 @@ public class Peli {
 
     public void init() {
         this.ruudukko.tyhjenna();
-
+        pelaa();
     }
 
     public void pelaa() {
         while (true) {
             if (this.vuorossa == Merkki.RISTI) {
-                System.out.println("X tee siirto");
+                System.out.println("X tee siirto, anna koordinaatit: ");
             } else {
-                System.out.println("O tee siirto");
+                System.out.println("O tee siirto, anna koordinaatit: ");
             }
             int rivi = Integer.parseInt(lukija.nextLine());
             int sarake = Integer.parseInt(lukija.nextLine());
+            Koordinaatit koordinaatit = new Koordinaatit(rivi, sarake);
 
-            if (this.vuorossa == (Merkki.RISTI)) {
-                this.ruudukko.setMerkki(rivi, sarake, Merkki.RISTI);
-                this.vuorossa = (Merkki.NOLLA);
+            if (tarkistaKoordinaatit(koordinaatit)) {
+                teeSiirto(koordinaatit);
+                if (tarkistaVoitto(this.vuorossa,koordinaatit)) {
+                    System.out.println(this.vuorossa + " voitti, onnea!");
+                    break;
+                } else if (this.ruudukko.onTaynna()) {
+                    System.out.println("Tasapeli");
+                    break;
+                }
+                if (this.vuorossa == Merkki.RISTI) {
+                    this.vuorossa = (Merkki.NOLLA);
+                } else {
+                    this.vuorossa = Merkki.RISTI;
+                }
             } else {
-                this.ruudukko.setMerkki(rivi, sarake, Merkki.NOLLA);
-                this.vuorossa = Merkki.RISTI;
-            }
-            if (this.ruudukko.voitto(vuorossa, rivi, sarake)
-                    || this.ruudukko.onTaynna()) {
-                break;
-
+                System.out.println("Koordinaatit eivät kelpaa.");
             }
         }
     }
 
-    public void teeSiirto(int rivi, int sarake) {
+    public void teeSiirto(Koordinaatit koordinaatit) {
+        
         if (this.vuorossa == (Merkki.RISTI)) {
-            this.ruudukko.setMerkki(rivi, sarake, Merkki.RISTI);
+            this.ruudukko.setMerkki(koordinaatit, Merkki.RISTI);
+
         } else if (this.vuorossa == (Merkki.NOLLA)) {
-            this.ruudukko.setMerkki(rivi, sarake, Merkki.NOLLA);
+            this.ruudukko.setMerkki(koordinaatit, Merkki.NOLLA);
+            
         }
 
     }
+
+    public boolean tarkistaVoitto(Merkki merkki, Koordinaatit koordinaatit) {
+        
+        return this.ruudukko.voitto(getVuorossa(), koordinaatit);
+    }
+
+    public boolean tarkistaKoordinaatit(Koordinaatit koordinaatit) {
+        int rivi= koordinaatit.getX();
+        int sarake = koordinaatit.getY();
+        return (rivi >= 0) && (rivi < 3) && (sarake >= 0) && (sarake < 3);
+    }
+    public Merkki getVuorossa(){
+        return this.vuorossa;
+    }
+
 }
