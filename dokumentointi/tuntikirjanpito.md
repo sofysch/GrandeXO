@@ -66,7 +66,7 @@ Luokkien luomista, suunnittelua ja koodia
 
 **Pe 5.2.**
 
-5h Käyttöliittymän ja grafiikan hahmottelua, tiedonhakua graafisiin juttuihin liittyen, luokkakaavion päivitys
+5h Käyttöliittymän ja grafiikan hahmottelua, tiedonhakua graafisiin juttuihin liittyen, luokkakaavion päivitys ja koodikatselmointi
 
 
 
