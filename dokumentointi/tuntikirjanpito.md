@@ -52,3 +52,21 @@ Luokkien luomista, suunnittelua ja koodia
 **Pe 29.1.**
 
 5h Luokkien koodausta ja muutaman testin koodausta, OTM:n kertausta, luokkakaavion viimeistely
+
+**Ma 1.2.**
+3h Luokkien muokkausta, logiikan testailua, 
+
+**Ke 3.2.**
+
+4h Testejä ja luokkien muokkausta, ohjan kertausta (graafiset jutut)
+
+**To 4.2.**
+
+3h Käyttöliittymän hahmottelua, logiikan muokkausta
+
+**Pe 5.2.**
+
+5h Käyttöliittymän ja grafiikan hahmottelua, tiedonhakua graafisiin juttuihin liittyen, luokkakaavion päivitys
+
+
+
