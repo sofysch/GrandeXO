@@ -10,15 +10,15 @@ package com.ristinolla.ui;
  * @author Sofia
  */
 import com.ristinolla.logiikka.Peli;
+import javax.swing.SwingUtilities;
 public class RistinollaMain {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Peli peli = new Peli();
-        peli.init();
-        
+        XOKayttoliittyma kayttoliittyma = new XOKayttoliittyma();
+        SwingUtilities.invokeLater(kayttoliittyma);
         
         // TODO code application logic here
     }

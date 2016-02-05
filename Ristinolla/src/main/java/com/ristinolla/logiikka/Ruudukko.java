@@ -7,6 +7,7 @@ package com.ristinolla.logiikka;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.awt.*;
 
 /**
  *
@@ -17,7 +18,6 @@ public class Ruudukko {
     private int riveja;
     private int sarakkeita;
     private Ruutu[][] ruudukko;
-    
 
 //    Luodaan ruudukko, joka koostuu Ruutu -luokan olioista.
     public Ruudukko() {
@@ -29,6 +29,7 @@ public class Ruudukko {
                 this.ruudukko[rivi][sarake] = new Ruutu(rivi, sarake);
             }
         }
+
     }
 
     public void setMerkki(Koordinaatit koordinaatit, Merkki merkki) {
@@ -59,7 +60,7 @@ public class Ruudukko {
     }
 
     public boolean voitto(Merkki merkki, Koordinaatit koordinaatit) {
-        int rivi= koordinaatit.getX();
+        int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
         if (merkki != Merkki.TYHJA) {
             if (this.ruudukko[rivi][0].getTila() == merkki
@@ -91,7 +92,7 @@ public class Ruudukko {
         return true;
     }
 
-public int getRivit() {
+    public int getRivit() {
         return this.riveja;
     }
 
@@ -100,9 +101,14 @@ public int getRivit() {
     }
 
     public Ruutu getRuutu(Koordinaatit koordinaatit) {
-        int rivi= koordinaatit.getX();
+        int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake];
     }
 
+    public void piirra(Graphics g) {
+        g.setColor(Color.BLACK);
+//        for (int rivi = 0; rivi < this.riveja; rivi++) {
+//    }
+    }
 }

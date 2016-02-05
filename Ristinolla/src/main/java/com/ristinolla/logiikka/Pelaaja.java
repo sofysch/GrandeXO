@@ -11,4 +11,6 @@ package com.ristinolla.logiikka;
  */
 public class Pelaaja {
     
+    
+    
 }

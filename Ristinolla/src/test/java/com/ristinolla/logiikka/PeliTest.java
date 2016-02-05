@@ -67,9 +67,21 @@ public class PeliTest {
         peli.teeSiirto(kolmas);
         assertEquals(true, peli.tarkistaVoitto(Merkki.RISTI, kolmas));
     }
-//    @Test
-//    public void palauttaaOikeanMerkinVuorossa(){
-//       
+    @Test
+    public void lisaaJalauttaaVoittojenMaaranOkein(){
+        peli.lisaaVoitto(Merkki.RISTI);
+        peli.lisaaVoitto(Merkki.RISTI);
+        peli.lisaaVoitto(Merkki.NOLLA);
+        assertEquals(2, peli.getRistinVoitot());
+        assertEquals(1, peli.getNollanVoitot());
+    }
+    public void tulostaaTuloksetOikein(){
+        peli.lisaaVoitto(Merkki.RISTI);
+        assertEquals("Risti on voittanut 1 peliä. "
+                + "Nolla on voittanut 0 peliä.",peli.tulostaVoitot());
+    }
+    
+       
 //        
 //    }
     

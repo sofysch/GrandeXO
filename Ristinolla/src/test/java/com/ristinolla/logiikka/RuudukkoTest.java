@@ -49,9 +49,10 @@ public class RuudukkoTest {
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(Merkki.RISTI, ruudukko.ruudunTila(k));
     }
+
     @Test
-    public void eiVoiAsettaaTyhjaaMerkkia(){
-        Koordinaatit k = new Koordinaatit(1,0);
+    public void eiVoiAsettaaTyhjaaMerkkia() {
+        Koordinaatit k = new Koordinaatit(1, 0);
         ruudukko.setMerkki(k, Merkki.RISTI);
         ruudukko.setMerkki(k, Merkki.TYHJA);
         assertEquals(Merkki.RISTI, ruudukko.ruudunTila(k));
@@ -61,7 +62,7 @@ public class RuudukkoTest {
     public void voittosarakeRistiTunnistetaan() {
         ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.RISTI);
         ruudukko.setMerkki(new Koordinaatit(1, 0), Merkki.RISTI);
-        Koordinaatit k = new Koordinaatit(2,0);
+        Koordinaatit k = new Koordinaatit(2, 0);
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(true, ruudukko.voitto(Merkki.RISTI, k));
     }
@@ -70,8 +71,8 @@ public class RuudukkoTest {
     public void eiVoittoaJosRivillaEriMerkkeja() {
         ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.RISTI);
         ruudukko.setMerkki(new Koordinaatit(0, 1), Merkki.NOLLA);
-        
-        Koordinaatit k = new Koordinaatit(0,2);
+
+        Koordinaatit k = new Koordinaatit(0, 2);
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(false, ruudukko.voitto(Merkki.RISTI, k));
         assertEquals(false, ruudukko.voitto(Merkki.NOLLA, k));
@@ -79,23 +80,24 @@ public class RuudukkoTest {
 
     @Test
     public void eiVoittoaJosRuudutTyhjia() {
-        assertEquals(false, ruudukko.voitto(Merkki.TYHJA, new Koordinaatit( 1, 1)));
+        assertEquals(false, ruudukko.voitto(Merkki.TYHJA, new Koordinaatit(1, 1)));
     }
 
     @Test
     public void eiVoittoaJosVinorivillaEriMerkkeja() {
         ruudukko.setMerkki(new Koordinaatit(1, 1), Merkki.RISTI);
         ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.RISTI);
-        Koordinaatit k = new Koordinaatit(2,2);
+        Koordinaatit k = new Koordinaatit(2, 2);
         ruudukko.setMerkki(k, Merkki.NOLLA);
         assertEquals(false, ruudukko.voitto(Merkki.RISTI, k));
         assertEquals(false, ruudukko.voitto(Merkki.NOLLA, k));
     }
+
     @Test
-    public void eiVoittoaJosTOisellaVinorivillaEriMerkkeja(){
+    public void eiVoittoaJosTOisellaVinorivillaEriMerkkeja() {
         ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.NOLLA);
         ruudukko.setMerkki(new Koordinaatit(2, 0), Merkki.NOLLA);
-        Koordinaatit k = new Koordinaatit(1,1);
+        Koordinaatit k = new Koordinaatit(1, 1);
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(false, ruudukko.voitto(Merkki.NOLLA, k));
         assertEquals(false, ruudukko.voitto(Merkki.RISTI, k));
@@ -119,16 +121,17 @@ public class RuudukkoTest {
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
                 ruudukko.setMerkki(k, Merkki.RISTI);
             }
-            ruudukko.getRuutu(new Koordinaatit(1,2)).tyhjenna();
+            ruudukko.getRuutu(new Koordinaatit(1, 2)).tyhjenna();
         }
         assertEquals(false, ruudukko.onTaynna());
     }
+
     @Test
-    public void tyhjentaaRuudukon(){
+    public void tyhjentaaRuudukon() {
         ruudukko.setMerkki(new Koordinaatit(1, 2), Merkki.RISTI);
         ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.RISTI);
         boolean tyhja = ruudukko.tyhjenna();
         assertEquals(true, tyhja);
     }
-    
+
 }

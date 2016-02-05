@@ -5,6 +5,10 @@
  */
 package com.ristinolla.logiikka;
 
+import java.awt.BasicStroke;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 /**
  *
  * @author Sofia
@@ -23,10 +27,10 @@ public class Ruutu {
         this.tila = Merkki.TYHJA;
     }
 
-    public String getSijainti(){
+    public String getSijainti() {
         return this.sijainti.getX() + ", " + this.sijainti.getY();
     }
-    
+
     public boolean onTyhja() {
         if (getTila() == (Merkki.TYHJA)) {
             return true;
@@ -40,17 +44,18 @@ public class Ruutu {
 
     public void setMerkki(Merkki merkki) {
         if (onTyhja()) {
-            if (merkki==(Merkki.RISTI)) {
+            if (merkki == (Merkki.RISTI)) {
                 this.tila = Merkki.RISTI;
-            } else if (merkki==(Merkki.NOLLA)) {
+            } else if (merkki == (Merkki.NOLLA)) {
                 this.tila = Merkki.NOLLA;
             }
-        }else{
+        } else {
             System.out.println("Ruudussa on jo " + getTila());
         }
     }
-    
-    
 
+    public void piirra(Graphics g) {
+
+    }
 
 }

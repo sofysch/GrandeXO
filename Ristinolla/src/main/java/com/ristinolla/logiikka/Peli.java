@@ -18,24 +18,31 @@ public class Peli {
     private Ruudukko ruudukko;
     private Merkki vuorossa;
     private Scanner lukija;
+    private int voitotRisti;
+    private int voitotNolla;
 
     public Peli() {
         this.ruudukko = new Ruudukko();
         this.vuorossa = Merkki.RISTI;
         lukija = new Scanner(System.in);
+        this.voitotNolla = 0;
+        this.voitotRisti = 0;
+
     }
 
     public void init() {
         this.ruudukko.tyhjenna();
         pelaa();
+
     }
 
     public void pelaa() {
+
         while (true) {
             if (this.vuorossa == Merkki.RISTI) {
-                System.out.println("X tee siirto, anna koordinaatit: ");
+                System.out.println("X vuorossa ");
             } else {
-                System.out.println("O tee siirto, anna koordinaatit: ");
+                System.out.println("O vuorossa ");
             }
             int rivi = Integer.parseInt(lukija.nextLine());
             int sarake = Integer.parseInt(lukija.nextLine());
@@ -43,11 +50,14 @@ public class Peli {
 
             if (tarkistaKoordinaatit(koordinaatit)) {
                 teeSiirto(koordinaatit);
-                if (tarkistaVoitto(this.vuorossa,koordinaatit)) {
+                if (tarkistaVoitto(this.vuorossa, koordinaatit)) {
                     System.out.println(this.vuorossa + " voitti, onnea!");
+                    lisaaVoitto(this.vuorossa);
+                    tulostaVoitot();
                     break;
                 } else if (this.ruudukko.onTaynna()) {
                     System.out.println("Tasapeli");
+                    tulostaVoitot();
                     break;
                 }
                 if (this.vuorossa == Merkki.RISTI) {
@@ -56,35 +66,61 @@ public class Peli {
                     this.vuorossa = Merkki.RISTI;
                 }
             } else {
-                System.out.println("Koordinaatit eivät kelpaa.");
+                System.out.println("Tarkista koordinaatit.");
             }
         }
+
     }
 
     public void teeSiirto(Koordinaatit koordinaatit) {
-        
+
         if (this.vuorossa == (Merkki.RISTI)) {
             this.ruudukko.setMerkki(koordinaatit, Merkki.RISTI);
 
         } else if (this.vuorossa == (Merkki.NOLLA)) {
             this.ruudukko.setMerkki(koordinaatit, Merkki.NOLLA);
-            
+
         }
 
     }
 
     public boolean tarkistaVoitto(Merkki merkki, Koordinaatit koordinaatit) {
-        
         return this.ruudukko.voitto(getVuorossa(), koordinaatit);
     }
 
     public boolean tarkistaKoordinaatit(Koordinaatit koordinaatit) {
-        int rivi= koordinaatit.getX();
+        int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
-        return (rivi >= 0) && (rivi < 3) && (sarake >= 0) && (sarake < 3);
+        if ((rivi >= 0) && (rivi < 3) && (sarake >= 0) && (sarake < 3)
+                && (ruudukko.getRuutu(koordinaatit).onTyhja())) {
+            return true;
+        }
+        return false;
     }
-    public Merkki getVuorossa(){
+
+    public Merkki getVuorossa() {
         return this.vuorossa;
+    }
+
+    public void lisaaVoitto(Merkki voittaja) {
+        if (voittaja == Merkki.RISTI) {
+            this.voitotRisti++;
+        } else {
+            this.voitotNolla++;
+        }
+    }
+
+    public int getRistinVoitot() {
+        return this.voitotRisti;
+    }
+
+    public int getNollanVoitot() {
+        return this.voitotNolla;
+    }
+
+    public String tulostaVoitot() {
+        return "Risti on voittanut " + getRistinVoitot() + " peliä. "
+                + "Nolla on voittanut " + getNollanVoitot() + " peliä.";
     }
 
 }

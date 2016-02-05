@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ristinolla.ui;
+package com.ristinolla.logiikka;
 
 /**
  *
  * @author Sofia
  */
-import com.ristinolla.logiikka.Peli;
-
-public class Kayttoliittyma {
-    
+public enum PelinTila {
+    JATKUU, X_VOITTI, O_VOITTI, TASAPELI;
 }
