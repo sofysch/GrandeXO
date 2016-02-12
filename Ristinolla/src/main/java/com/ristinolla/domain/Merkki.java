@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ristinolla.logiikka;
+package com.ristinolla.domain;
 
 /**
- *
+ * Ruutujen mahdolliset tilat. 
  * @author Sofia
  */
-public class Pelaaja {
-    
-    
-    
+public enum Merkki {
+    RISTI, NOLLA, TYHJA
 }

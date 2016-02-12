@@ -5,6 +5,8 @@
  */
 package com.ristinolla.logiikka;
 
+import com.ristinolla.domain.Koordinaatit;
+import com.ristinolla.domain.Merkki;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

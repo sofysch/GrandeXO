@@ -5,6 +5,7 @@
  */
 package com.ristinolla.logiikka;
 
+import com.ristinolla.domain.Merkki;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,7 +46,9 @@ public class RuutuTest {
     //
     @Test
     public void konstruktoriLuoSijainninOikein() {
-        assertEquals("1, 2", ruutu.getSijainti());
+        assertEquals(1, ruutu.getX());
+        assertEquals(2,ruutu.getY());
+    
     }
 
     @Test

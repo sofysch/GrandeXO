@@ -6,9 +6,12 @@
 package com.ristinolla.logiikka;
 
 /**
+ * Ristinolla -pelin tekstikäyttöliittymä.
  *
  * @author Sofia
  */
+import com.ristinolla.domain.Koordinaatit;
+import com.ristinolla.domain.Merkki;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +24,7 @@ public class Peli {
     private int voitotRisti;
     private int voitotNolla;
 
-    public Peli() {
+    public Peli(int rivit, int sarakkeet) {
         this.ruudukko = new Ruudukko();
         this.vuorossa = Merkki.RISTI;
         lukija = new Scanner(System.in);
@@ -30,12 +33,24 @@ public class Peli {
 
     }
 
+    public Peli() {
+        this(10, 10);
+
+    }
+    /**
+     * Tyhjentää ruudukon ja aloittaa uuden pelin.
+     */
+
     public void init() {
         this.ruudukko.tyhjenna();
         pelaa();
+        tulostaVoitot();
 
     }
-
+    /**
+     * Pelaa peliä.
+     */
+    
     public void pelaa() {
 
         while (true) {
@@ -51,9 +66,9 @@ public class Peli {
             if (tarkistaKoordinaatit(koordinaatit)) {
                 teeSiirto(koordinaatit);
                 if (tarkistaVoitto(this.vuorossa, koordinaatit)) {
-                    System.out.println(this.vuorossa + " voitti, onnea!");
                     lisaaVoitto(this.vuorossa);
-                    tulostaVoitot();
+                    System.out.println(this.vuorossa + " voitti, onnea!");
+
                     break;
                 } else if (this.ruudukko.onTaynna()) {
                     System.out.println("Tasapeli");
@@ -71,6 +86,11 @@ public class Peli {
         }
 
     }
+    /**
+     * Asettaa haluttuun ruutuun ristin tai nollan.
+     * @param koordinaatit Ruudun koordinaatit
+     *
+     */
 
     public void teeSiirto(Koordinaatit koordinaatit) {
 
@@ -83,24 +103,36 @@ public class Peli {
         }
 
     }
+    /**
+     * Tarkistaa onko peli voitettu.
+     * @param merkki Mikä merkki on vuorossa
+     * @param koordinaatit Missä ruudussa viimeisin siirto on
+     * @return True, jos voittorivi on muodostunut, muutoin false
+     */
 
     public boolean tarkistaVoitto(Merkki merkki, Koordinaatit koordinaatit) {
         return this.ruudukko.voitto(getVuorossa(), koordinaatit);
     }
+    /**
+     * Tarkistaa annettujen koordinaattien kelpoisuuden.
+     * @param koordinaatit Annetut koordinaatit
+     * @return 
+     */
 
     public boolean tarkistaKoordinaatit(Koordinaatit koordinaatit) {
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
-        if ((rivi >= 0) && (rivi < 3) && (sarake >= 0) && (sarake < 3)
-                && (ruudukko.getRuutu(koordinaatit).onTyhja())) {
-            return true;
-        }
-        return false;
+        return (rivi >= 0) && (rivi < 3) && (sarake >= 0) && (sarake < 3)
+                && (ruudukko.getRuutu(koordinaatit).onTyhja());
     }
 
     public Merkki getVuorossa() {
         return this.vuorossa;
     }
+    /**
+     * Pitää kirjaa voitoista.
+     * @param voittaja Merkki, jolle voitto lisätään
+     */
 
     public void lisaaVoitto(Merkki voittaja) {
         if (voittaja == Merkki.RISTI) {
@@ -117,6 +149,10 @@ public class Peli {
     public int getNollanVoitot() {
         return this.voitotNolla;
     }
+    /**
+     * Tulostaa merkkien voittojen määrän.
+     * @return 
+     */
 
     public String tulostaVoitot() {
         return "Risti on voittanut " + getRistinVoitot() + " peliä. "

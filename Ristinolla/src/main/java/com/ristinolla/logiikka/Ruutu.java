@@ -5,11 +5,17 @@
  */
 package com.ristinolla.logiikka;
 
-import java.awt.BasicStroke;
+import com.ristinolla.domain.Koordinaatit;
+import com.ristinolla.domain.Merkki;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.JButton;
 
 /**
+ * Luokka tarjoaa metodeja yksittäisen ruudun tietoihin ja sen piirtämiseen ja
+ * muokkaamiseen. Oletustila on TYHJA.
  *
  * @author Sofia
  */
@@ -17,30 +23,42 @@ public class Ruutu {
 
     private Merkki tila;
     private Koordinaatit sijainti;
+    public static final int KOKO = 100; //Sivun pituus
+    private BufferedImage nolla;
 
     public Ruutu(int x, int y) {
         this.sijainti = new Koordinaatit(x, y);
         this.tila = Merkki.TYHJA;
+
     }
 
     public void tyhjenna() {
         this.tila = Merkki.TYHJA;
     }
 
-    public String getSijainti() {
-        return this.sijainti.getX() + ", " + this.sijainti.getY();
+    public int getX() {
+        return this.sijainti.getX();
     }
 
+    public int getY() {
+        return this.sijainti.getY();
+    }
+    /**
+     * Tarkistaa, onko ruudun tila tyhjä.
+     * @return 
+     */
+
     public boolean onTyhja() {
-        if (getTila() == (Merkki.TYHJA)) {
-            return true;
-        }
-        return false;
+        return getTila() == (Merkki.TYHJA);
     }
 
     public Merkki getTila() {
         return this.tila;
     }
+    /**
+     * Asettaa ruutuun nollan tai ristin, jos se on tyhjä.
+     * @param merkki RISTI tai NOLLA.
+     */
 
     public void setMerkki(Merkki merkki) {
         if (onTyhja()) {
@@ -53,8 +71,19 @@ public class Ruutu {
             System.out.println("Ruudussa on jo " + getTila());
         }
     }
+    /**
+     * Piirtää ristin tai nollan.
+     * @param g
+     * @param merkki RISTI tai NOLLA
+     */
 
-    public void piirra(Graphics g) {
+    public void piirra(Graphics g, Merkki merkki) {
+
+        if (merkki == Merkki.NOLLA) {
+
+        } else if (merkki == Merkki.RISTI) {
+
+        }
 
     }
 

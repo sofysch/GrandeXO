@@ -68,5 +68,26 @@ Luokkien luomista, suunnittelua ja koodia
 
 5h Käyttöliittymän ja grafiikan hahmottelua, tiedonhakua graafisiin juttuihin liittyen, luokkakaavion päivitys ja koodikatselmointi
 
+**Ma 8.2.**
+
+2h 15 min Graafisen käyttöliittymän kokeiluja, tiedonhakua.
+
+**Ti 9.2.**
+
+1,5h Lisää gui- informointia ja kokeiluja.
+
+**Ke 10.2.**
+
+2h 15 min Pajassa kyselemistä, tiedonhakua, käyttöliittymän koodausta.
+
+**To 11.2.**
+
+3h 20 min Testien ajamista, käyttöliittymän yritelmiä, paljon vaikeuksia.
+
+**Pe 12.2.**
+
+5h Lopultakin näkyvä ristikko käyttöliittymään, JavaDocin kirjoittaminen, Checkstyle -raportin generointi, koodin siivousta, pit -generointi, pakkauksien järjestämistä, kuvauksen päivittäminen.
+Koska käyttöliittymäyritelmiin tuhlaantui paljon aikaa, ei lopullista koodia ole syntynyt niin paljon.
+
 
 
