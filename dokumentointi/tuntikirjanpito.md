@@ -101,7 +101,7 @@ Koska käyttöliittymäyritelmiin tuhlaantui paljon aikaa, ei lopullista koodia ole
 
 1h 15 min MouseListener työn alla
 
-**To 18.2. **
+**To 18.2.**
 
 4h MouseListener saatu toimimaan, ristit ja nollat ilmestyvät oikeisiin kohtiin.
 
