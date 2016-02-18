@@ -89,5 +89,22 @@ Luokkien luomista, suunnittelua ja koodia
 5h Lopultakin näkyvä ristikko käyttöliittymään, JavaDocin kirjoittaminen, Checkstyle -raportin generointi, koodin siivousta, pit -generointi, pakkauksien järjestämistä, kuvauksen päivittäminen.
 Koska käyttöliittymäyritelmiin tuhlaantui paljon aikaa, ei lopullista koodia ole syntynyt niin paljon.
 
+**Ma 15.2.**
+
+~2h Koetin saada ruutuja piirretyksi, sain kuvat mukaan koodiin
+
+**Ti 16.2.**
+
+3h Kuvat ilmestyvät ruudulle, mutta liian isoina vielä
+
+**Ke 17.2.**
+
+1h 15 min MouseListener työn alla
+
+**To 18.2. **
+
+4h MouseListener saatu toimimaan, ristit ja nollat ilmestyvät oikeisiin kohtiin.
+
+
 
 
