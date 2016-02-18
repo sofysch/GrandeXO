@@ -10,5 +10,5 @@ package com.ristinolla.domain;
  * @author Sofia
  */
 public enum PelinTila {
-    JATKUU, X_VOITTI, O_VOITTI, TASAPELI;
+    PELAA, X_VOITTI, O_VOITTI, TASAPELI;
 }

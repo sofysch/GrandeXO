@@ -26,7 +26,7 @@ public class XOValikko extends JPanel {
     }
 
     private void luoKomponentit() {
-        JButton uusiPeli = new JButton("Perinteinen peli");
+        JButton uusiPeli = new JButton("Uusi peli");
         JButton tyhjenna = new JButton("Tyhjenna");
         JButton poistu = new JButton("Poistu");
 

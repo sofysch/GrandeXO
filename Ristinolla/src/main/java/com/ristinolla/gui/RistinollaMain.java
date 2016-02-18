@@ -11,6 +11,8 @@ package com.ristinolla.gui;
  */
 
 import com.ristinolla.logiikka.Ruudukko;
+import com.ristinolla.logiikka.Ruutu;
+
 import javax.swing.SwingUtilities;
 
 public class RistinollaMain {
@@ -19,10 +21,11 @@ public class RistinollaMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        XOKayttoliittyma peli = new XOKayttoliittyma(new Ruudukko());
+        XOFrame peli = new XOFrame(new Ruudukko());
         SwingUtilities.invokeLater(peli);
         
         // TODO code application logic here
+        
     }
 }
     

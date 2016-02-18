@@ -11,35 +11,47 @@ package com.ristinolla.gui;
  * @author Sofia
  */
 
+import com.ristinolla.domain.Merkki;
+import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-public class XOKayttoliittyma implements Runnable {
+public class XOFrame implements Runnable {
 
     private JFrame frame;
     private XOValikko valikko;
-    //private JButton[][] napit;
+    private Merkki vuorossa;
     private Ruudukko ruudukko;
+    private JLabel viesti;
 
-    public XOKayttoliittyma(Ruudukko ruudukko) {
-        //this.napit = new JButton[3][3];
+    public XOFrame(Ruudukko ruudukko) {
+        
         this.valikko = new XOValikko();
         this.ruudukko = ruudukko;
+        this.viesti = new JLabel ("Non ci posso credere.");
+        this.viesti.setFont(new Font(Font.DIALOG_INPUT, Font.ROMAN_BASELINE, 14));
+        this.viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
+        this.viesti.setOpaque(true);
+        this.viesti.setBackground(Color.LIGHT_GRAY);
 
     }
 
     @Override
     public void run() {
         frame = new JFrame("Ristinolla");
-        frame.setPreferredSize(new Dimension(350, 400));
+        frame.setPreferredSize(new Dimension(620, 690));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,20 +63,10 @@ public class XOKayttoliittyma implements Runnable {
 
     private void luoKomponentit(Container container) {
         XOAlusta alusta = new XOAlusta(this.ruudukko);
-        container.add(alusta);
+        container.add(alusta, BorderLayout.CENTER);
         container.add(this.valikko, BorderLayout.SOUTH);
+        container.add(this.viesti, BorderLayout.PAGE_START);
 
-//        GridLayout layout = new GridLayout(3,3);
-//        container.setLayout(layout);
-//        container.add(new JButton("1"));
-//        container.add(new JButton("2"));
-//        container.add(new JButton("3"));
-//        container.add(new JButton("4"));
-//        container.add(new JButton("5"));
-//        container.add(new JButton("6"));
-//        container.add(new JButton("7"));
-//        container.add(new JButton("8"));
-//        container.add(new JButton("9"));
     }
 
     private int getLeveys() {
@@ -74,4 +76,5 @@ public class XOKayttoliittyma implements Runnable {
     private int getKorkeus() {
         return this.frame.getHeight();
     }
+    
 }

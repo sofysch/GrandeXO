@@ -7,15 +7,20 @@ package com.ristinolla.logiikka;
 
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
+import com.ristinolla.gui.XOAlusta;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
 
 /**
- * Luokka tarjoaa metodeja yksittäisen ruudun tietoihin ja sen piirtämiseen ja
- * muokkaamiseen. Oletustila on TYHJA.
+ * Luokka tarjoaa metodeja yksittÃƒÂ¤isen ruudun tietoihin ja sen
+ * piirtÃƒÂ¤miseen ja muokkaamiseen. Oletustila on TYHJA.
  *
  * @author Sofia
  */
@@ -23,8 +28,6 @@ public class Ruutu {
 
     private Merkki tila;
     private Koordinaatit sijainti;
-    public static final int KOKO = 100; //Sivun pituus
-    private BufferedImage nolla;
 
     public Ruutu(int x, int y) {
         this.sijainti = new Koordinaatit(x, y);
@@ -43,9 +46,11 @@ public class Ruutu {
     public int getY() {
         return this.sijainti.getY();
     }
+
     /**
-     * Tarkistaa, onko ruudun tila tyhjä.
-     * @return 
+     * Tarkistaa, onko ruudun tila tyhjÃƒÂ¤.
+     *
+     * @return
      */
 
     public boolean onTyhja() {
@@ -55,8 +60,10 @@ public class Ruutu {
     public Merkki getTila() {
         return this.tila;
     }
+
     /**
-     * Asettaa ruutuun nollan tai ristin, jos se on tyhjä.
+     * Asettaa ruudun tilaksi nollan tai ristin, jos sen tila on TYHJA.
+     *
      * @param merkki RISTI tai NOLLA.
      */
 
@@ -71,20 +78,29 @@ public class Ruutu {
             System.out.println("Ruudussa on jo " + getTila());
         }
     }
+
     /**
-     * Piirtää ristin tai nollan.
+     * Asettaa ruutuun ristin tai nollan kuvan.
+     *
      * @param g
-     * @param merkki RISTI tai NOLLA
      */
+    public void piirra(Graphics g) {
+        BufferedImage nolla = null;
+        BufferedImage risti = null;
 
-    public void piirra(Graphics g, Merkki merkki) {
-
-        if (merkki == Merkki.NOLLA) {
-
-        } else if (merkki == Merkki.RISTI) {
-
+        try {
+            nolla = ImageIO.read(new File("NOLLA.png"));
+            risti = ImageIO.read(new File("RISTI.png"));
+        } catch (IOException ex) {
+            System.out.println("Kuvaa ei ole");
         }
 
-    }
+        if (this.tila == Merkki.NOLLA) {
+            g.drawImage(nolla, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
 
+        } else if (this.tila == Merkki.RISTI) {
+            g.drawImage(risti, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
+
+        }
+    }
 }

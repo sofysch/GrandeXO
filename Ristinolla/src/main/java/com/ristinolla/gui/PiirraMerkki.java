@@ -5,24 +5,100 @@
  */
 package com.ristinolla.gui;
 
+import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
+import com.ristinolla.domain.PelinTila;
+import com.ristinolla.logiikka.Ruudukko;
 import com.ristinolla.logiikka.Ruutu;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Component;
 
-
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
- * 
+ *
  * @author Sofia
  */
-public class PiirraMerkki implements ActionListener {
+public class PiirraMerkki implements MouseListener {
 
     private Ruutu ruutu;
+    private XOAlusta alusta;
+    private Ruudukko ruudukko;
+    private Merkki vuorossa;
+    private PelinTila tila;
+    private Component component;
+
+    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
+//        this.alusta = alusta;
+        this.ruudukko = ruudukko;
+//        this.tila = tila;
+        this.component = alusta;
+        this.vuorossa = alusta.getVuorossa();
+
+    }
+
+    /**
+     * Kun hiirtä klikataan, metodi asettaa valitun ruudun tilan ristiksi tai
+     * nollaksi ja päivittää pelin tilan, eli tarkistaa, onko ruudukko täynnä ja
+     * kumpi merkki voitti vai päättyikö peli tasapeliin.
+     *
+     * @param me
+     */
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        int x = me.getX();
+        int y = me.getY();
+
+        int rivi = y / XOAlusta.RUUDUN_SIVU;
+        int sarake = x / XOAlusta.RUUDUN_SIVU;
+        Koordinaatit k = new Koordinaatit(sarake, rivi);
+        
+        if (this.ruudukko.getRuutu(k).onTyhja()) {
+            this.ruudukko.setMerkki(k, this.vuorossa);
+            paivita(this.vuorossa, k);
+
+            if (this.vuorossa == Merkki.RISTI) {
+                this.vuorossa = Merkki.NOLLA;
+            } else {
+                this.vuorossa = Merkki.RISTI;
+            }
+        }
+        this.component.repaint();
+
+    }
+    /**
+     * Muuttaa pelin tilan, jos edellinen siirto oli voittosiirto, tai jos peli
+     * alusta on täynnä.
+     * @param vuorossa Merkki, joka teki edellisen siirron
+     * @param k koordinaatit, johon edellinen merkki asetettiin
+     */
+
+    public void paivita(Merkki vuorossa, Koordinaatit k) {
+        if (this.ruudukko.voitto(this.vuorossa, k)) {
+            if (this.vuorossa == Merkki.NOLLA) {
+                this.tila = PelinTila.O_VOITTI;
+            } else if (this.vuorossa == Merkki.RISTI) {
+                this.tila = PelinTila.X_VOITTI;
+            }
+        } else if (this.ruudukko.onTaynna()) {
+            this.tila = PelinTila.TASAPELI;
+        }
+    }
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void mousePressed(MouseEvent me) {
+    }
 
+    @Override
+    public void mouseReleased(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
     }
 
 }

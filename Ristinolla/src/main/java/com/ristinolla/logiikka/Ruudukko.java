@@ -7,6 +7,7 @@ package com.ristinolla.logiikka;
 
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
+import com.ristinolla.gui.XOAlusta;
 import java.awt.*;
 
 /**
@@ -26,8 +27,8 @@ public class Ruudukko {
     public Ruudukko() {
         this.riveja = 3;
         this.sarakkeita = 3;
-        this.korkeus = Ruutu.KOKO * riveja;
-        this.leveys = Ruutu.KOKO * sarakkeita;
+        this.korkeus = XOAlusta.RUUDUN_SIVU;
+        this.leveys = XOAlusta.RUUDUN_SIVU;
 
         this.ruudukko = new Ruutu[this.riveja][this.sarakkeita];
         for (int rivi = 0; rivi < this.riveja; rivi++) {
@@ -45,7 +46,6 @@ public class Ruudukko {
      * @param koordinaatit Ruudun sijainti ruudukossa
      * @param merkki Mikä merkki ruutuun asetetaan
      */
-
     public void setMerkki(Koordinaatit koordinaatit, Merkki merkki) {
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
@@ -62,7 +62,6 @@ public class Ruudukko {
      * @return true, jos kaikkien ruutujen tila on TYHJA ja false, jos näin ei
      * ole.
      */
-
     public boolean tyhjenna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
@@ -83,7 +82,6 @@ public class Ruudukko {
      *
      * @return ruudun tila, TYHJA, RISTI tai NOLLA.
      */
-
     public Merkki ruudunTila(Koordinaatit koordinaatit) {
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
@@ -97,7 +95,6 @@ public class Ruudukko {
      * @param koordinaatit Tarkistettavan ruudun koordinaatit
      * @return true, jos voittorivi on muodostunut, false, jos ei.
      */
-
     public boolean voitto(Merkki merkki, Koordinaatit koordinaatit) {
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
@@ -126,7 +123,6 @@ public class Ruudukko {
      *
      * @return true, jos minkään ruudun tila ei ole tyhjä, muutoin false.
      */
-
     public boolean onTaynna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
@@ -152,33 +148,35 @@ public class Ruudukko {
      * @param koordinaatit Halutun ruudun koordinaatit
      * @return ruutu
      */
-
     public Ruutu getRuutu(Koordinaatit koordinaatit) {
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake];
     }
 
-//    public void kaikkiRuudut() {
-//        for (int rivi = 0; rivi < this.riveja; rivi++) {
-//            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
-//                System.out.println("jee");
-//            }
-//
-//        }
-//    }
     /**
      * Piirtää ruudukon.
      *
      * @param g
      */
     public void piirra(Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
 
-        g.drawLine(0, this.korkeus / 3, this.leveys, this.korkeus / 3);
-        g.drawLine(0, this.korkeus / 3 + Ruutu.KOKO, this.leveys, this.korkeus / 3 + Ruutu.KOKO); //rivit
+        g.drawLine(5, this.korkeus, XOAlusta.LEVEYS - 5, this.korkeus);
+        g.drawLine(5, 2 * this.korkeus, XOAlusta.LEVEYS - 5, 2 * this.korkeus); //rivit
 
-        g.drawLine(this.leveys / 3, 0, this.leveys / 3, this.korkeus);
-        g.drawLine(this.leveys / 3 + Ruutu.KOKO, 0, this.leveys / 3 + Ruutu.KOKO, this.korkeus);
+        g.drawLine(this.leveys, 5, this.leveys, XOAlusta.KORKEUS - 5);
+        g.drawLine(this.leveys * 2, 5, this.leveys * 2, XOAlusta.KORKEUS - 5);
+        
+
+
+    }
+
+    public void piirraRuudut(Graphics g) {
+        for (int rivi = 0; rivi < this.riveja; rivi++) {
+            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
+                this.ruudukko[rivi][sarake].piirra(g);
+            }
+        }
     }
 }
