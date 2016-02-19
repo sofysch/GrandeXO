@@ -19,7 +19,7 @@ public class UudenPelinAloittaja implements MouseListener {
     private Ruudukko ruudukko;
     /**
      * Työn alla.
-     * @param ruudukko
+     * @param ruudukko tyhjennettävä ruudukko
      */
     public UudenPelinAloittaja(Ruudukko ruudukko) {
 //        this.ruudukko = ruudukko;

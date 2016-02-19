@@ -23,6 +23,7 @@ public class XOValikko extends JPanel {
 
     /**
      * Alustetaan valikko.
+     * @param ruudukko ruudukko, jota muokataan
      */
     public XOValikko(Ruudukko ruudukko) {
         super(new GridLayout(1, 2));

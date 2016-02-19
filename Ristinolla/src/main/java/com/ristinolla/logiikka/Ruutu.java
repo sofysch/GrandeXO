@@ -16,7 +16,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-
 /**
  * Luokka tarjoaa metodeja yksittÃƒÂ¤isen ruudun tietoihin ja sen
  * piirtÃƒÂ¤miseen ja muokkaamiseen. Oletustila on TYHJA.
@@ -80,14 +79,15 @@ public class Ruutu {
             } else if (merkki == (Merkki.NOLLA)) {
                 this.tila = Merkki.NOLLA;
             }
-        }else{
+        } else {
             this.tila = this.getTila();
         }
-        
+
     }
 
     /**
      * Asettaa ruutuun ristin tai nollan kuvan.
+     *
      * @param g Graphics
      */
     public void piirra(Graphics g) {
@@ -105,7 +105,7 @@ public class Ruutu {
         if (this.tila == Merkki.NOLLA) {
             g.drawImage(nolla, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
 
-        } else if (this.tila == Merkki.RISTI){
+        } else if (this.tila == Merkki.RISTI) {
             g.drawImage(risti, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
 
         }
