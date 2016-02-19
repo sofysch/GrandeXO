@@ -30,3 +30,7 @@ Peliä voi pelata perinteisesti 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti 
 
 ![Risti ruutuun](Risti_Ruudukkoon.png)
 
+![uusiPeli](UusiPeli.png)
+
+
+
