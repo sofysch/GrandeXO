@@ -19,9 +19,14 @@ Peliä voi pelata perinteisesti 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti 
 - Merkitsee ristin / ympyrän haluamaansa ruutuun
 - Aloittaa uuden pelin
 
+**Luokkakaavio:**
 
 
 ![Luokkakaavio](http://yuml.me/011b7650)
 
-![Risti ruutuun](RistiRuutuun.png)
+
+**Sekvenssikaaviot**
+
+
+![Risti ruutuun](Risti_Ruudukkoon.png)
 
