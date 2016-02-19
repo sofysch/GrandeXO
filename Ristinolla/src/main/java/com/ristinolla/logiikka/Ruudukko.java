@@ -24,6 +24,9 @@ public class Ruudukko {
     public int leveys;
     public int korkeus;
 
+    /**
+     * Alustetaan 3x3 -kokoinen ruudukko, joka koostuu Ruutu-olioista.
+     */
     public Ruudukko() {
         this.riveja = 3;
         this.sarakkeita = 3;
@@ -58,20 +61,13 @@ public class Ruudukko {
     /**
      * Metodilla voi tyhjentää koko ruudukon. Kaikkien ruutujen tilaksi tulee
      * TYHJA.
-     *
-     * @return true, jos kaikkien ruutujen tila on TYHJA ja false, jos näin ei
-     * ole.
      */
-    public boolean tyhjenna() {
+    public void tyhjenna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
                 this.ruudukko[rivi][sarake].tyhjenna();
-                if (this.ruudukko[rivi][sarake].getTila() != (Merkki.TYHJA)) {
-                    return false;
-                }
             }
         }
-        return true;
     }
 
     /**
@@ -157,7 +153,7 @@ public class Ruudukko {
     /**
      * Piirtää ruudukon.
      *
-     * @param g
+     * @param g Graphics
      */
     public void piirra(Graphics g) {
         g.setColor(Color.BLACK);
@@ -167,11 +163,14 @@ public class Ruudukko {
 
         g.drawLine(this.leveys, 5, this.leveys, XOAlusta.KORKEUS - 5);
         g.drawLine(this.leveys * 2, 5, this.leveys * 2, XOAlusta.KORKEUS - 5);
-        
-
 
     }
 
+    /**
+     * Piirtää jokaisen ruudukon ruudun.
+     *
+     * @param g Graphics
+     */
     public void piirraRuudut(Graphics g) {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {

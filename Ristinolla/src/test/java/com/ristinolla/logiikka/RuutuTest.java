@@ -6,6 +6,7 @@
 package com.ristinolla.logiikka;
 
 import com.ristinolla.domain.Merkki;
+import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -80,4 +81,7 @@ public class RuutuTest {
         ruutu.setMerkki(Merkki.NOLLA);
         assertEquals(Merkki.RISTI, ruutu.getTila());
     }
+    
+    
+    
 }

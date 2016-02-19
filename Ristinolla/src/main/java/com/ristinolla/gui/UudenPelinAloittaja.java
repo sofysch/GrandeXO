@@ -5,23 +5,30 @@
  */
 package com.ristinolla.gui;
 
+import com.ristinolla.logiikka.Ruudukko;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
+ * Aloittaa uuden pelin klikatessa. Työstetään.
  * @author Sofia
  */
 public class UudenPelinAloittaja implements MouseListener {
-
-    public UudenPelinAloittaja() {
+//    private Ruudukko ruudukko;
+    /**
+     * Työn alla.
+     * @param ruudukko
+     */
+    public UudenPelinAloittaja(Ruudukko ruudukko) {
+//        this.ruudukko = ruudukko;
 
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
+//        this.ruudukko.tyhjenna();
 
     }
 

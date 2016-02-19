@@ -6,7 +6,7 @@
 package com.ristinolla.gui;
 
 /**
- *
+ * Ristinolla-pelin main-luokka.
  * @author Sofia
  */
 
@@ -18,6 +18,7 @@ import javax.swing.SwingUtilities;
 public class RistinollaMain {
 
     /**
+     * Main.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

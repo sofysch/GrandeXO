@@ -10,7 +10,6 @@ package com.ristinolla.gui;
  *
  * @author Sofia
  */
-
 import com.ristinolla.domain.Merkki;
 import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
@@ -22,7 +21,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -36,11 +35,15 @@ public class XOFrame implements Runnable {
     private Ruudukko ruudukko;
     private JLabel viesti;
 
+    /**
+     * Alustetaan valikkko, ruudukko, viesti ja sen fontti, lisäksi ikkunan 
+     * koko ja väri.
+     * @param ruudukko ruudukko
+     */
     public XOFrame(Ruudukko ruudukko) {
-        
-        this.valikko = new XOValikko();
         this.ruudukko = ruudukko;
-        this.viesti = new JLabel ("Non ci posso credere.");
+        this.valikko = new XOValikko(ruudukko);
+        this.viesti = new JLabel("Pelaa");
         this.viesti.setFont(new Font(Font.DIALOG_INPUT, Font.ROMAN_BASELINE, 14));
         this.viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
         this.viesti.setOpaque(true);
@@ -76,5 +79,5 @@ public class XOFrame implements Runnable {
     private int getKorkeus() {
         return this.frame.getHeight();
     }
-    
+
 }

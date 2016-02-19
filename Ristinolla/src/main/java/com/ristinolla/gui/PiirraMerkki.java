@@ -16,7 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- *
+ * Luokka käsittelee hiiren klikkauksen.
  * @author Sofia
  */
 public class PiirraMerkki implements MouseListener {
@@ -28,6 +28,11 @@ public class PiirraMerkki implements MouseListener {
     private PelinTila tila;
     private Component component;
 
+    /**
+     * Konstruktori saa paramentreina pelialustan ja ruudukon.
+     * @param alusta Alusta, jonka tapahtumia kuunnellaan
+     * @param ruudukko Ruudukko, jonka tilaa päivitetään
+     */
     public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
 //        this.alusta = alusta;
         this.ruudukko = ruudukko;
@@ -42,15 +47,17 @@ public class PiirraMerkki implements MouseListener {
      * nollaksi ja päivittää pelin tilan, eli tarkistaa, onko ruudukko täynnä ja
      * kumpi merkki voitti vai päättyikö peli tasapeliin.
      *
-     * @param me
+     * @param me hiiren toiminta
      */
     @Override
     public void mouseClicked(MouseEvent me) {
         int x = me.getX();
         int y = me.getY();
+        
 
         int rivi = y / XOAlusta.RUUDUN_SIVU;
         int sarake = x / XOAlusta.RUUDUN_SIVU;
+        
         Koordinaatit k = new Koordinaatit(sarake, rivi);
         
         if (this.ruudukko.getRuutu(k).onTyhja()) {
@@ -69,7 +76,7 @@ public class PiirraMerkki implements MouseListener {
     /**
      * Muuttaa pelin tilan, jos edellinen siirto oli voittosiirto, tai jos peli
      * alusta on täynnä.
-     * @param vuorossa Merkki, joka teki edellisen siirron
+     * @param vuorossa RISTI tai NOLLA
      * @param k koordinaatit, johon edellinen merkki asetettiin
      */
 

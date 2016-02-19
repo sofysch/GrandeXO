@@ -19,22 +19,26 @@ import javax.swing.JPanel;
  * @author Sofia
  */
 public class XOValikko extends JPanel {
+    private Ruudukko ruudukko;
 
-    public XOValikko() {
-        super(new GridLayout(1, 3));
+    /**
+     * Alustetaan valikko.
+     */
+    public XOValikko(Ruudukko ruudukko) {
+        super(new GridLayout(1, 2));
         luoKomponentit();
+        this.ruudukko = ruudukko;
     }
 
     private void luoKomponentit() {
         JButton uusiPeli = new JButton("Uusi peli");
-        JButton tyhjenna = new JButton("Tyhjenna");
+        
         JButton poistu = new JButton("Poistu");
 
-        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja();
+        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.ruudukko);
         uusiPeli.addMouseListener(aloittaja);
 
         add(uusiPeli);
-        add(tyhjenna);
         add(poistu);
 
     }

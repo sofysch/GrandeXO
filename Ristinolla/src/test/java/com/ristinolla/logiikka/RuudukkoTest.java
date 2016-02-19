@@ -61,12 +61,36 @@ public class RuudukkoTest {
     }
 
     @Test
-    public void voittosarakeRistiTunnistetaan() {
-        ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.RISTI);
-        ruudukko.setMerkki(new Koordinaatit(1, 0), Merkki.RISTI);
-        Koordinaatit k = new Koordinaatit(2, 0);
+    public void voittosarakeTunnistetaan() {
+        ruudukko.setMerkki(new Koordinaatit(0, 1), Merkki.RISTI);
+        ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.RISTI);
+        Koordinaatit k = new Koordinaatit(0, 0);
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(true, ruudukko.voitto(Merkki.RISTI, k));
+    }
+    @Test 
+    public void voittoriviTunnistetaan(){
+        ruudukko.setMerkki(new Koordinaatit(0,0), Merkki.NOLLA);
+        ruudukko.setMerkki(new Koordinaatit(1,0), Merkki.NOLLA);
+        Koordinaatit k = new Koordinaatit(2,0);
+        ruudukko.setMerkki(k, Merkki.NOLLA);
+        assertEquals(true, ruudukko.voitto(Merkki.NOLLA, k));
+    }
+    @Test
+    public void voittovinoriviTunnistetaan(){
+        ruudukko.setMerkki(new Koordinaatit(0,0), Merkki.RISTI);
+        ruudukko.setMerkki(new Koordinaatit(1,1), Merkki.RISTI);
+        Koordinaatit k = new Koordinaatit(2,2);
+        ruudukko.setMerkki(k, Merkki.RISTI);
+        assertEquals(true, ruudukko.voitto(Merkki.RISTI, k));
+    }
+    @Test
+    public void toinenVoittovinoriviTunnistetaan(){
+        ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.NOLLA);
+        ruudukko.setMerkki(new Koordinaatit(2, 0), Merkki.NOLLA);
+        Koordinaatit k = new Koordinaatit(1, 1);
+        ruudukko.setMerkki(k, Merkki.NOLLA);
+        assertEquals(true, ruudukko.voitto(Merkki.NOLLA, k));
     }
 
     @Test
@@ -130,10 +154,16 @@ public class RuudukkoTest {
 
     @Test
     public void tyhjentaaRuudukon() {
-        ruudukko.setMerkki(new Koordinaatit(1, 2), Merkki.RISTI);
-        ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.RISTI);
-        boolean tyhja = ruudukko.tyhjenna();
-        assertEquals(true, tyhja);
+        for (int rivi = 0; rivi < ruudukko.getRivit(); rivi++) {
+            for (int sarake = 0; sarake < ruudukko.getSarakkeita(); sarake++) {
+                Koordinaatit k = new Koordinaatit(rivi, sarake);
+                ruudukko.setMerkki(k, Merkki.RISTI);
+            }
+        }
+        ruudukko.tyhjenna();
+       
+        assertEquals(Merkki.TYHJA, ruudukko.getRuutu(new Koordinaatit(1,2)).getTila() );
     }
+    
 
 }

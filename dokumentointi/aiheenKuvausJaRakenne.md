@@ -15,7 +15,7 @@ Peliä voi pelata perinteisesti 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti 
 
 **Käyttäjän toiminnot:**
 
-- Valitsee pelattavan pelin: pieni / suuri ruudukko
+(- Valitsee pelattavan pelin: pieni / suuri ruudukko)
 - Merkitsee ristin / ympyrän haluamaansa ruutuun
 - Aloittaa uuden pelin
 

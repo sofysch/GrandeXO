@@ -36,6 +36,11 @@ public class XOAlusta extends JPanel {
     private Merkki vuorossa;
     private PelinTila tila;
 
+    /**
+     * Alustetaan tyhjä ruudukko ja lisätään alustalle mouseListener, alustetaan
+     * vuorossa oleva merkki ja pelin tila sekä alustan koko ja taustaväri.
+     * @param ruudukko ruudukko, joka piirretään
+     */
     public XOAlusta(Ruudukko ruudukko) {
         setSize(LEVEYS, KORKEUS);
         super.setBackground(Color.LIGHT_GRAY);
@@ -53,9 +58,20 @@ public class XOAlusta extends JPanel {
         this.ruudukko.piirraRuudut(g);
     }
 
+    /**
+     * Palauttaa vuorossa olevan merkin.
+     * @return RISTI tai NOLLA
+     */
     public Merkki getVuorossa() {
         return this.vuorossa;
     }
+
+    /**
+     * Tarkistetaan, onko peli voitettu.
+     * @param merkki RISTI tai NOLLA
+     * @param koordinaatit ruudukon koordinaatit
+     * @return true, jos voitto, muutoin false
+     */
     public boolean tarkistaVoitto(Merkki merkki, Koordinaatit koordinaatit) {
         return this.ruudukko.voitto(getVuorossa(), koordinaatit);
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ristinolla.logiikka;
+package com.ristinolla.ui;
 
 /**
  * Ristinolla -pelin tekstikäyttöliittymä.
@@ -12,6 +12,7 @@ package com.ristinolla.logiikka;
  */
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
+import com.ristinolla.logiikka.Ruudukko;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +25,10 @@ public class Peli {
     private int voitotRisti;
     private int voitotNolla;
 
-    public Peli(int rivit, int sarakkeet) {
+    /**
+     * Alustetaan ruudukko, vuorossa oleva merkki ja voittojen määrä.
+     */
+    public Peli() {
         this.ruudukko = new Ruudukko();
         this.vuorossa = Merkki.RISTI;
         lukija = new Scanner(System.in);
@@ -33,10 +37,6 @@ public class Peli {
 
     }
 
-    public Peli() {
-        this(10, 10);
-
-    }
     /**
      * Tyhjentää ruudukon ja aloittaa uuden pelin.
      */
@@ -116,7 +116,7 @@ public class Peli {
     /**
      * Tarkistaa annettujen koordinaattien kelpoisuuden.
      * @param koordinaatit Annetut koordinaatit
-     * @return 
+     * @return true, jos koordinaatit ovat ruudukon sisällä, muutoin false
      */
 
     public boolean tarkistaKoordinaatit(Koordinaatit koordinaatit) {
@@ -151,7 +151,7 @@ public class Peli {
     }
     /**
      * Tulostaa merkkien voittojen määrän.
-     * @return 
+     * @return string
      */
 
     public String tulostaVoitot() {

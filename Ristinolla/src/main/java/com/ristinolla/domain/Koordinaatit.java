@@ -15,6 +15,11 @@ public class Koordinaatit {
     private int x;
     private int y;
 
+    /**
+     * Konstruktorille annetaan x - ja y-koordinaatit kokonaislukuina.
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     */
     public Koordinaatit(int x, int y) {
         this.x = x;
         this.y = y;
