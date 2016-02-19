@@ -105,6 +105,8 @@ Koska käyttöliittymäyritelmiin tuhlaantui paljon aikaa, ei lopullista koodia ole
 
 4h MouseListener saatu toimimaan, ristit ja nollat ilmestyvät oikeisiin kohtiin.
 
+**Pe 19.2.**
 
-
+6h Checkstyle -raportti, testien tekemistä, pit-raportti, sekvenssikaaviot, aiheen kuvauksen päivitys, koodikatselmointi.
+En osaa testata logiikan piirtämismetodeja, siksi testien rivikattavuus ei ole niin hyvä.
 
