@@ -43,7 +43,7 @@ public class XOFrame implements Runnable {
     public XOFrame(Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
         this.valikko = new XOValikko(ruudukko);
-        this.viesti = new JLabel("Pelaa");
+        this.viesti = new JLabel("non ci posso credere");
         this.viesti.setFont(new Font(Font.DIALOG_INPUT, Font.ROMAN_BASELINE, 14));
         this.viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
         this.viesti.setOpaque(true);

@@ -16,7 +16,7 @@ import java.awt.event.MouseListener;
  * @author Sofia
  */
 public class UudenPelinAloittaja implements MouseListener {
-//    private Ruudukko ruudukko;
+    private Ruudukko ruudukko;
     /**
      * Työn alla.
      * @param ruudukko
