@@ -30,8 +30,8 @@ public class Ruudukko {
     public Ruudukko() {
         this.riveja = 3;
         this.sarakkeita = 3;
-        this.korkeus = XOAlusta.RUUDUN_SIVU;
-        this.leveys = XOAlusta.RUUDUN_SIVU;
+//        this.korkeus = XOAlusta.RUUDUN_SIVU;
+//        this.leveys = XOAlusta.RUUDUN_SIVU;
 
         this.ruudukko = new Ruutu[this.riveja][this.sarakkeita];
         for (int rivi = 0; rivi < this.riveja; rivi++) {
@@ -68,6 +68,17 @@ public class Ruudukko {
                 this.ruudukko[rivi][sarake].tyhjenna();
             }
         }
+    }
+    
+    public boolean onTyhja(){
+        for (int rivi = 0; rivi < this.riveja; rivi++) {
+            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
+                 if(!this.ruudukko[rivi][sarake].onTyhja()){
+                     return false;
+                 }
+            }
+        }
+        return true;
     }
 
     /**
@@ -150,32 +161,32 @@ public class Ruudukko {
         return this.ruudukko[rivi][sarake];
     }
 
-    /**
-     * Piirtää ruudukon.
-     *
-     * @param g Graphics
-     */
-    public void piirra(Graphics g) {
-        g.setColor(Color.BLACK);
+//    /**
+//     * Piirtää ruudukon.
+//     *
+//     * @param g Graphics
+//     */
+//    public void piirra(Graphics g) {
+//        g.setColor(Color.BLACK);
+//
+//        g.drawLine(5, this.korkeus, XOAlusta.LEVEYS - 5, this.korkeus);
+//        g.drawLine(5, 2 * this.korkeus, XOAlusta.LEVEYS - 5, 2 * this.korkeus); //rivit
+//
+//        g.drawLine(this.leveys, 5, this.leveys, XOAlusta.KORKEUS - 5);
+//        g.drawLine(this.leveys * 2, 5, this.leveys * 2, XOAlusta.KORKEUS - 5);
+//
+//    }
 
-        g.drawLine(5, this.korkeus, XOAlusta.LEVEYS - 5, this.korkeus);
-        g.drawLine(5, 2 * this.korkeus, XOAlusta.LEVEYS - 5, 2 * this.korkeus); //rivit
-
-        g.drawLine(this.leveys, 5, this.leveys, XOAlusta.KORKEUS - 5);
-        g.drawLine(this.leveys * 2, 5, this.leveys * 2, XOAlusta.KORKEUS - 5);
-
-    }
-
-    /**
-     * Piirtää jokaisen ruudukon ruudun.
-     *
-     * @param g Graphics
-     */
-    public void piirraRuudut(Graphics g) {
-        for (int rivi = 0; rivi < this.riveja; rivi++) {
-            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
-                this.ruudukko[rivi][sarake].piirra(g);
-            }
-        }
-    }
+//    /**
+//     * Piirtää jokaisen ruudukon ruudun.
+//     *
+//     * @param g Graphics
+//     */
+//    public void piirraRuudut(Graphics g) {
+//        for (int rivi = 0; rivi < this.riveja; rivi++) {
+//            for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
+//                this.ruudukko[rivi][sarake].piirra(g);
+//            }
+//        }
+//    }
 }

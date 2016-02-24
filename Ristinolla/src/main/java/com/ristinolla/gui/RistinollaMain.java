@@ -11,8 +11,6 @@ package com.ristinolla.gui;
  */
 
 import com.ristinolla.logiikka.Ruudukko;
-import com.ristinolla.logiikka.Ruutu;
-
 import javax.swing.SwingUtilities;
 
 public class RistinollaMain {

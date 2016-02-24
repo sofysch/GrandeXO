@@ -5,31 +5,48 @@
  */
 package com.ristinolla.gui;
 
+import com.ristinolla.domain.Merkki;
+import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
  * Aloittaa uuden pelin klikatessa. Työstetään.
+ *
  * @author Sofia
  */
 public class UudenPelinAloittaja implements MouseListener {
+
     private Ruudukko ruudukko;
+    private XOAlusta alusta;
+    private PelinTila tila;
+    
+
     /**
      * Työn alla.
+     *
      * @param ruudukko tyhjennettävä ruudukko
+     * @param alusta alusta, joka piirretään tyhjentämisen jälkeen uudestaan
      */
-    public UudenPelinAloittaja(Ruudukko ruudukko) {
-//        this.ruudukko = ruudukko;
-
+    public UudenPelinAloittaja(Ruudukko ruudukko, XOAlusta alusta, PelinTila tila) {
+        this.ruudukko = ruudukko;
+        this.alusta = alusta;
+        this.tila = tila;
+        
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-//        this.ruudukko.tyhjenna();
-
+        this.ruudukko.tyhjenna();
+        if (this.ruudukko.onTyhja()) {
+            
+            this.alusta.paivitaViesti(PelinTila.PELAA, Merkki.RISTI);
+            this.alusta.alustaPeli();
+            this.alusta.repaint();
+           
+            
+        }
     }
 
     @Override

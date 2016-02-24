@@ -17,6 +17,7 @@ import java.awt.event.MouseListener;
 
 /**
  * Luokka käsittelee hiiren klikkauksen.
+ *
  * @author Sofia
  */
 public class PiirraMerkki implements MouseListener {
@@ -30,14 +31,16 @@ public class PiirraMerkki implements MouseListener {
 
     /**
      * Konstruktori saa paramentreina pelialustan ja ruudukon.
+     *
      * @param alusta Alusta, jonka tapahtumia kuunnellaan
      * @param ruudukko Ruudukko, jonka tilaa päivitetään
      */
-    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
+    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko, PelinTila tila) {
 //        this.alusta = alusta;
         this.ruudukko = ruudukko;
-//        this.tila = tila;
-        this.component = alusta;
+        this.alusta = alusta;
+        this.tila = tila;
+
         this.vuorossa = alusta.getVuorossa();
 
     }
@@ -53,29 +56,28 @@ public class PiirraMerkki implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         int x = me.getX();
         int y = me.getY();
-        
 
         int rivi = y / XOAlusta.RUUDUN_SIVU;
         int sarake = x / XOAlusta.RUUDUN_SIVU;
-        
+
         Koordinaatit k = new Koordinaatit(sarake, rivi);
-        
-        if (this.ruudukko.getRuutu(k).onTyhja()) {
-            this.ruudukko.setMerkki(k, this.vuorossa);
-            paivita(this.vuorossa, k);
+        if (this.tila == PelinTila.PELAA) {
+            if (this.ruudukko.getRuutu(k).onTyhja()) {
+                this.ruudukko.setMerkki(k, this.vuorossa);
+                paivita(this.vuorossa, k);
+                
+                this.vuorossa = ( this.vuorossa == Merkki.RISTI ? Merkki.NOLLA : Merkki.RISTI);
 
-            if (this.vuorossa == Merkki.RISTI) {
-                this.vuorossa = Merkki.NOLLA;
-            } else {
-                this.vuorossa = Merkki.RISTI;
             }
+            this.alusta.paivitaViesti(this.tila, this.vuorossa);
+            this.alusta.repaint();
         }
-        this.component.repaint();
-
     }
+
     /**
      * Muuttaa pelin tilan, jos edellinen siirto oli voittosiirto, tai jos peli
      * alusta on täynnä.
+     *
      * @param vuorossa RISTI tai NOLLA
      * @param k koordinaatit, johon edellinen merkki asetettiin
      */
@@ -90,6 +92,7 @@ public class PiirraMerkki implements MouseListener {
         } else if (this.ruudukko.onTaynna()) {
             this.tila = PelinTila.TASAPELI;
         }
+        this.alusta.paivitaViesti(this.tila, this.vuorossa);
     }
 
     @Override

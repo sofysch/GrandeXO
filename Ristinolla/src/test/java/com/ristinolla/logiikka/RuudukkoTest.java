@@ -68,24 +68,27 @@ public class RuudukkoTest {
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(true, ruudukko.voitto(Merkki.RISTI, k));
     }
-    @Test 
-    public void voittoriviTunnistetaan(){
-        ruudukko.setMerkki(new Koordinaatit(0,0), Merkki.NOLLA);
-        ruudukko.setMerkki(new Koordinaatit(1,0), Merkki.NOLLA);
-        Koordinaatit k = new Koordinaatit(2,0);
+
+    @Test
+    public void voittoriviTunnistetaan() {
+        ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.NOLLA);
+        ruudukko.setMerkki(new Koordinaatit(1, 0), Merkki.NOLLA);
+        Koordinaatit k = new Koordinaatit(2, 0);
         ruudukko.setMerkki(k, Merkki.NOLLA);
         assertEquals(true, ruudukko.voitto(Merkki.NOLLA, k));
     }
+
     @Test
-    public void voittovinoriviTunnistetaan(){
-        ruudukko.setMerkki(new Koordinaatit(0,0), Merkki.RISTI);
-        ruudukko.setMerkki(new Koordinaatit(1,1), Merkki.RISTI);
-        Koordinaatit k = new Koordinaatit(2,2);
+    public void voittovinoriviTunnistetaan() {
+        ruudukko.setMerkki(new Koordinaatit(0, 0), Merkki.RISTI);
+        ruudukko.setMerkki(new Koordinaatit(1, 1), Merkki.RISTI);
+        Koordinaatit k = new Koordinaatit(2, 2);
         ruudukko.setMerkki(k, Merkki.RISTI);
         assertEquals(true, ruudukko.voitto(Merkki.RISTI, k));
     }
+
     @Test
-    public void toinenVoittovinoriviTunnistetaan(){
+    public void toinenVoittovinoriviTunnistetaan() {
         ruudukko.setMerkki(new Koordinaatit(0, 2), Merkki.NOLLA);
         ruudukko.setMerkki(new Koordinaatit(2, 0), Merkki.NOLLA);
         Koordinaatit k = new Koordinaatit(1, 1);
@@ -161,9 +164,14 @@ public class RuudukkoTest {
             }
         }
         ruudukko.tyhjenna();
-       
-        assertEquals(Merkki.TYHJA, ruudukko.getRuutu(new Koordinaatit(1,2)).getTila() );
+
+        assertEquals(true, ruudukko.onTyhja());
     }
-    
+    @Test
+    public void palauttaaOikeinJosRuudukkoOnTyhja(){
+        ruudukko.tyhjenna();
+        ruudukko.setMerkki(new Koordinaatit(1,0), Merkki.RISTI);
+        assertEquals(false, ruudukko.onTyhja());
+    }
 
 }

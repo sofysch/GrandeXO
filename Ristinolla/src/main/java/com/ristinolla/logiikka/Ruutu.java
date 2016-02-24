@@ -8,6 +8,7 @@ package com.ristinolla.logiikka;
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
 import com.ristinolla.gui.XOAlusta;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -90,26 +91,30 @@ public class Ruutu {
      *
      * @param g Graphics
      */
-    public void piirra(Graphics g) {
-
-        BufferedImage nolla = null;
-        BufferedImage risti = null;
-
-        try {
-            nolla = ImageIO.read(new File("NOLLA.png"));
-            risti = ImageIO.read(new File("RISTI.png"));
-        } catch (IOException ex) {
-            System.exit(1);
-        }
-
-        if (this.tila == Merkki.NOLLA) {
-            g.drawImage(nolla, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
-
-        } else if (this.tila == Merkki.RISTI) {
-            g.drawImage(risti, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
-
-        }
-
-    }
+//    public void piirra(Graphics g) {
+//
+//        BufferedImage nolla = null;
+//        BufferedImage risti = null;
+//
+//        try {
+//            nolla = ImageIO.read(new File("NOLLA.png"));
+//            risti = ImageIO.read(new File("RISTI.png"));
+//        } catch (IOException ex) {
+//            System.exit(1);
+//        }
+//
+//        if (this.tila == Merkki.NOLLA) {
+//            g.drawImage(nolla, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
+//
+//        } else if (this.tila == Merkki.RISTI) {
+//            g.drawImage(risti, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
+//
+////        } else {
+////            g.setColor(Color.LIGHT_GRAY);
+////            g.fillRect(this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, XOAlusta.RUUDUN_SIVU, XOAlusta.RUUDUN_SIVU);
+////            
+//        }
+//
+//    }
 
 }

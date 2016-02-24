@@ -5,6 +5,7 @@
  */
 package com.ristinolla.gui;
 
+import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,15 +21,21 @@ import javax.swing.JPanel;
  */
 public class XOValikko extends JPanel {
     private Ruudukko ruudukko;
+    private XOAlusta alusta;
+    private PelinTila tila;
+    
 
     /**
      * Alustetaan valikko.
      * @param ruudukko ruudukko, jota muokataan
+     * @param alusta pelialusta
      */
-    public XOValikko(Ruudukko ruudukko) {
+    public XOValikko(Ruudukko ruudukko, XOAlusta alusta) {
         super(new GridLayout(1, 2));
-        luoKomponentit();
         this.ruudukko = ruudukko;
+        this.alusta = alusta;
+        
+        luoKomponentit();
     }
 
     private void luoKomponentit() {
@@ -36,7 +43,7 @@ public class XOValikko extends JPanel {
         
         JButton poistu = new JButton("Poistu");
 
-        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.ruudukko);
+        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.ruudukko,this.alusta, this.alusta.getTila());
         uusiPeli.addMouseListener(aloittaja);
 
         add(uusiPeli);

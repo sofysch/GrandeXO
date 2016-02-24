@@ -19,7 +19,6 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 
 import javax.swing.JFrame;
@@ -31,9 +30,9 @@ public class XOFrame implements Runnable {
 
     private JFrame frame;
     private XOValikko valikko;
-    private Merkki vuorossa;
     private Ruudukko ruudukko;
-    private JLabel viesti;
+    
+    private XOAlusta alusta;
 
     /**
      * Alustetaan valikkko, ruudukko, viesti ja sen fontti, lisäksi ikkunan 
@@ -42,12 +41,9 @@ public class XOFrame implements Runnable {
      */
     public XOFrame(Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
-        this.valikko = new XOValikko(ruudukko);
-        this.viesti = new JLabel("non ci posso credere");
-        this.viesti.setFont(new Font(Font.DIALOG_INPUT, Font.ROMAN_BASELINE, 14));
-        this.viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
-        this.viesti.setOpaque(true);
-        this.viesti.setBackground(Color.LIGHT_GRAY);
+        this.alusta = new XOAlusta(this.ruudukko);
+        this.valikko = new XOValikko(ruudukko, this.alusta);
+        
 
     }
 
@@ -65,19 +61,20 @@ public class XOFrame implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        XOAlusta alusta = new XOAlusta(this.ruudukko);
-        container.add(alusta, BorderLayout.CENTER);
+        container.add(this.alusta, BorderLayout.CENTER);
         container.add(this.valikko, BorderLayout.SOUTH);
-        container.add(this.viesti, BorderLayout.PAGE_START);
+        
 
     }
 
-    private int getLeveys() {
+    public int getLeveys() {
         return this.frame.getWidth();
     }
 
-    private int getKorkeus() {
+    public int getKorkeus() {
         return this.frame.getHeight();
     }
+    
+    
 
 }
