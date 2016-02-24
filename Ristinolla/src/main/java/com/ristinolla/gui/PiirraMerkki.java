@@ -49,7 +49,7 @@ public class PiirraMerkki implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent me) {
 
-        System.out.println(alusta.getTila());
+        
         int x = me.getX();
         int y = me.getY();
 

@@ -36,7 +36,7 @@ public class UudenPelinAloittaja implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         this.alusta.alustaPeli();
         this.alusta.repaint();
-        System.out.println(this.alusta.getTila());
+        
 
     }
 
