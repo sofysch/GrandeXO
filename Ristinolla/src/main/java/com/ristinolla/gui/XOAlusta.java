@@ -55,7 +55,7 @@ public class XOAlusta extends JPanel {
         this.ruudukko = ruudukko;
         this.ruudukonKorkeus = XOAlusta.RUUDUN_SIVU;
         this.ruudukonLeveys = XOAlusta.RUUDUN_SIVU;
-        this.tila  = PelinTila.PELAA;
+        this.tila = PelinTila.PELAA;
         this.ruudukko.tyhjenna();
         this.vuorossa = Merkki.RISTI;
 
@@ -69,8 +69,7 @@ public class XOAlusta extends JPanel {
         setLayout(new BorderLayout());
         add(this.viesti, BorderLayout.PAGE_END);
         setPreferredSize(new Dimension(LEVEYS, KORKEUS + 30));
-        
-        
+
     }
 
     @Override
@@ -93,36 +92,64 @@ public class XOAlusta extends JPanel {
     public PelinTila getTila() {
         return this.tila;
     }
-    public void setTila(PelinTila tila){
+
+    public void setTila(PelinTila tila) {
         this.tila = tila;
     }
-    public void alustaPeli(){
+
+    public void alustaPeli() {
         this.ruudukko.tyhjenna();
         this.vuorossa = Merkki.RISTI;
         setTila(PelinTila.PELAA);
     }
 
     public void paivitaViesti(PelinTila tila, Merkki merkki) {
-        if (tila == PelinTila.PELAA) {
-            this.viesti.setForeground(Color.MAGENTA);
-            if (merkki == Merkki.RISTI) {
-                this.viesti.setText("Risti vuorossa!");
-            } else if (merkki == Merkki.NOLLA) {
-                this.viesti.setText("Nolla vuorossa!");
-            }
+        switch (tila) {
+            case PELAA:
+                this.viesti.setForeground(Color.MAGENTA);
+                if (merkki == Merkki.RISTI) {
+                    this.viesti.setText("Risti vuorossa!");
+                } else if (merkki == Merkki.NOLLA) {
+                    this.viesti.setText("Nolla vuorossa!");
+                }
+                break;
+            case TASAPELI:
+                this.viesti.setForeground(Color.WHITE);
+                viesti.setText("Tasapeli! Aloita uusi peli!");
+                break;
+            case O_VOITTI: 
+                this.viesti.setForeground(Color.yellow);
+                viesti.setText("Nolla voitti! Onnea!");
+                break;
+            case X_VOITTI:
+                this.viesti.setForeground(Color.BLUE);
+                viesti.setText("Risti voitti! Onnea!");
+                break;
+            default:
+                viesti.setText("Ristinolla");
+                break;
 
-        } else if (tila == PelinTila.TASAPELI) {
-            this.viesti.setForeground(Color.WHITE);
-            viesti.setText("Tasapeli! Aloita uusi peli!");
-            
-        } else if (tila == PelinTila.O_VOITTI) {
-            this.viesti.setForeground(Color.yellow);
-            viesti.setText("Nolla voitti! Onnea!");
-            
-        } else if (tila == PelinTila.X_VOITTI) {
-            this.viesti.setForeground(Color.BLUE);
-            viesti.setText("Risti voitti! Onnea!");
         }
+//        if (tila == PelinTila.PELAA) {
+//            this.viesti.setForeground(Color.MAGENTA);
+//            if (merkki == Merkki.RISTI) {
+//                this.viesti.setText("Risti vuorossa!");
+//            } else if (merkki == Merkki.NOLLA) {
+//                this.viesti.setText("Nolla vuorossa!");
+//            }
+//
+//        } else if (tila == PelinTila.TASAPELI) {
+//            this.viesti.setForeground(Color.WHITE);
+//            viesti.setText("Tasapeli! Aloita uusi peli!");
+//
+//        } else if (tila == PelinTila.O_VOITTI) {
+//            this.viesti.setForeground(Color.yellow);
+//            viesti.setText("Nolla voitti! Onnea!");
+//
+//        } else if (tila == PelinTila.X_VOITTI) {
+//            this.viesti.setForeground(Color.BLUE);
+//            viesti.setText("Risti voitti! Onnea!");
+//        }
     }
 
     public void piirraRuudukko(Graphics g) {
