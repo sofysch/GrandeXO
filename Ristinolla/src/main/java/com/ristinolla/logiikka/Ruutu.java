@@ -86,35 +86,4 @@ public class Ruutu {
 
     }
 
-    /**
-     * Asettaa ruutuun ristin tai nollan kuvan.
-     *
-     * @param g Graphics
-     */
-//    public void piirra(Graphics g) {
-//
-//        BufferedImage nolla = null;
-//        BufferedImage risti = null;
-//
-//        try {
-//            nolla = ImageIO.read(new File("NOLLA.png"));
-//            risti = ImageIO.read(new File("RISTI.png"));
-//        } catch (IOException ex) {
-//            System.exit(1);
-//        }
-//
-//        if (this.tila == Merkki.NOLLA) {
-//            g.drawImage(nolla, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
-//
-//        } else if (this.tila == Merkki.RISTI) {
-//            g.drawImage(risti, this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
-//
-////        } else {
-////            g.setColor(Color.LIGHT_GRAY);
-////            g.fillRect(this.getX() * XOAlusta.RUUDUN_SIVU + 10, this.getY() * XOAlusta.RUUDUN_SIVU + 10, XOAlusta.RUUDUN_SIVU, XOAlusta.RUUDUN_SIVU);
-////            
-//        }
-//
-//    }
-
 }

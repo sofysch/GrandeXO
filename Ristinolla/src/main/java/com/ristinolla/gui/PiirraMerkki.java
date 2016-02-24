@@ -35,12 +35,11 @@ public class PiirraMerkki implements MouseListener {
      * @param alusta Alusta, jonka tapahtumia kuunnellaan
      * @param ruudukko Ruudukko, jonka tilaa päivitetään
      */
-    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko, PelinTila tila) {
+    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
 //        this.alusta = alusta;
         this.ruudukko = ruudukko;
         this.alusta = alusta;
-        this.tila = tila;
-
+        
         this.vuorossa = alusta.getVuorossa();
 
     }
@@ -54,23 +53,27 @@ public class PiirraMerkki implements MouseListener {
      */
     @Override
     public void mouseClicked(MouseEvent me) {
+        
+        System.out.println(alusta.getTila());
         int x = me.getX();
         int y = me.getY();
 
         int rivi = y / XOAlusta.RUUDUN_SIVU;
         int sarake = x / XOAlusta.RUUDUN_SIVU;
-
         Koordinaatit k = new Koordinaatit(sarake, rivi);
-        if (this.tila == PelinTila.PELAA) {
+        if (alusta.getTila() == PelinTila.PELAA) {
+        
             if (this.ruudukko.getRuutu(k).onTyhja()) {
                 this.ruudukko.setMerkki(k, this.vuorossa);
-                paivita(this.vuorossa, k);
                 
-                this.vuorossa = ( this.vuorossa == Merkki.RISTI ? Merkki.NOLLA : Merkki.RISTI);
+                paivitaTila(this.vuorossa, k);
 
-            }
-            this.alusta.paivitaViesti(this.tila, this.vuorossa);
+                this.vuorossa = (this.vuorossa == Merkki.RISTI) ? Merkki.NOLLA : Merkki.RISTI;
+
+            
+            this.alusta.paivitaViesti(alusta.getTila(), this.vuorossa);
             this.alusta.repaint();
+                }
         }
     }
 
@@ -81,18 +84,19 @@ public class PiirraMerkki implements MouseListener {
      * @param vuorossa RISTI tai NOLLA
      * @param k koordinaatit, johon edellinen merkki asetettiin
      */
-
-    public void paivita(Merkki vuorossa, Koordinaatit k) {
+    public void paivitaTila(Merkki vuorossa, Koordinaatit k) {
         if (this.ruudukko.voitto(this.vuorossa, k)) {
             if (this.vuorossa == Merkki.NOLLA) {
-                this.tila = PelinTila.O_VOITTI;
+                alusta.setTila(PelinTila.O_VOITTI);
             } else if (this.vuorossa == Merkki.RISTI) {
-                this.tila = PelinTila.X_VOITTI;
+                alusta.setTila( PelinTila.X_VOITTI);
             }
         } else if (this.ruudukko.onTaynna()) {
-            this.tila = PelinTila.TASAPELI;
+            alusta.setTila(PelinTila.TASAPELI);
+        } else {
+            alusta.setTila(PelinTila.PELAA);
         }
-        this.alusta.paivitaViesti(this.tila, this.vuorossa);
+        
     }
 
     @Override

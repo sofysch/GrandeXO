@@ -43,7 +43,7 @@ public class XOValikko extends JPanel {
         
         JButton poistu = new JButton("Poistu");
 
-        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.ruudukko,this.alusta, this.alusta.getTila());
+        UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.alusta);
         uusiPeli.addMouseListener(aloittaja);
 
         add(uusiPeli);

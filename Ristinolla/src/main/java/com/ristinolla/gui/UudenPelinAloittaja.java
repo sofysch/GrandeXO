@@ -20,7 +20,7 @@ public class UudenPelinAloittaja implements MouseListener {
 
     private Ruudukko ruudukko;
     private XOAlusta alusta;
-    private PelinTila tila;
+    
     
 
     /**
@@ -29,24 +29,20 @@ public class UudenPelinAloittaja implements MouseListener {
      * @param ruudukko tyhjennettävä ruudukko
      * @param alusta alusta, joka piirretään tyhjentämisen jälkeen uudestaan
      */
-    public UudenPelinAloittaja(Ruudukko ruudukko, XOAlusta alusta, PelinTila tila) {
-        this.ruudukko = ruudukko;
+    public UudenPelinAloittaja( XOAlusta alusta) {
         this.alusta = alusta;
-        this.tila = tila;
+        
         
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        this.ruudukko.tyhjenna();
-        if (this.ruudukko.onTyhja()) {
-            
-            this.alusta.paivitaViesti(PelinTila.PELAA, Merkki.RISTI);
             this.alusta.alustaPeli();
             this.alusta.repaint();
+            System.out.println(this.alusta.getTila());
            
             
-        }
+        
     }
 
     @Override
