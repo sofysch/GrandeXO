@@ -40,17 +40,17 @@ public class Peli {
     /**
      * Tyhjentää ruudukon ja aloittaa uuden pelin.
      */
-
     public void init() {
         this.ruudukko.tyhjenna();
         pelaa();
         tulostaVoitot();
 
     }
+
     /**
      * Pelaa peliä.
      */
-    
+
     public void pelaa() {
 
         while (true) {
@@ -86,8 +86,10 @@ public class Peli {
         }
 
     }
+
     /**
      * Asettaa haluttuun ruutuun ristin tai nollan.
+     *
      * @param koordinaatit Ruudun koordinaatit
      *
      */
@@ -103,8 +105,10 @@ public class Peli {
         }
 
     }
+
     /**
      * Tarkistaa onko peli voitettu.
+     *
      * @param merkki Mikä merkki on vuorossa
      * @param koordinaatit Missä ruudussa viimeisin siirto on
      * @return True, jos voittorivi on muodostunut, muutoin false
@@ -113,8 +117,10 @@ public class Peli {
     public boolean tarkistaVoitto(Merkki merkki, Koordinaatit koordinaatit) {
         return this.ruudukko.voitto(getVuorossa(), koordinaatit);
     }
+
     /**
      * Tarkistaa annettujen koordinaattien kelpoisuuden.
+     *
      * @param koordinaatit Annetut koordinaatit
      * @return true, jos koordinaatit ovat ruudukon sisällä, muutoin false
      */
@@ -129,8 +135,10 @@ public class Peli {
     public Merkki getVuorossa() {
         return this.vuorossa;
     }
+
     /**
      * Pitää kirjaa voitoista.
+     *
      * @param voittaja Merkki, jolle voitto lisätään
      */
 
@@ -149,8 +157,10 @@ public class Peli {
     public int getNollanVoitot() {
         return this.voitotNolla;
     }
+
     /**
      * Tulostaa merkkien voittojen määrän.
+     *
      * @return string
      */
 

@@ -69,13 +69,13 @@ public class Ruudukko {
             }
         }
     }
-    
-    public boolean onTyhja(){
+
+    public boolean onTyhja() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
-                 if(!this.ruudukko[rivi][sarake].onTyhja()){
-                     return false;
-                 }
+                if (!this.ruudukko[rivi][sarake].onTyhja()) {
+                    return false;
+                }
             }
         }
         return true;
@@ -160,6 +160,5 @@ public class Ruudukko {
         int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake];
     }
-
 
 }

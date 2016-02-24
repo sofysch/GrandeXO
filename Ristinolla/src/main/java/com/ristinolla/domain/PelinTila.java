@@ -7,8 +7,10 @@ package com.ristinolla.domain;
 
 /**
  * Pelin mahdolliset tilat. Ei vielä käytössä logiikassa.
+ *
  * @author Sofia
  */
 public enum PelinTila {
+
     PELAA, X_VOITTI, O_VOITTI, TASAPELI;
 }

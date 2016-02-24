@@ -31,19 +31,19 @@ public class XOFrame implements Runnable {
     private JFrame frame;
     private XOValikko valikko;
     private Ruudukko ruudukko;
-    
+
     private XOAlusta alusta;
 
     /**
-     * Alustetaan valikkko, ruudukko, viesti ja sen fontti, lisäksi ikkunan 
-     * koko ja väri.
+     * Alustetaan valikkko, ruudukko, viesti ja sen fontti, lisäksi ikkunan koko
+     * ja väri.
+     *
      * @param ruudukko ruudukko
      */
     public XOFrame(Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
         this.alusta = new XOAlusta(this.ruudukko);
         this.valikko = new XOValikko(ruudukko, this.alusta);
-        
 
     }
 
@@ -63,7 +63,6 @@ public class XOFrame implements Runnable {
     private void luoKomponentit(Container container) {
         container.add(this.alusta, BorderLayout.CENTER);
         container.add(this.valikko, BorderLayout.SOUTH);
-        
 
     }
 
@@ -74,7 +73,5 @@ public class XOFrame implements Runnable {
     public int getKorkeus() {
         return this.frame.getHeight();
     }
-    
-    
 
 }

@@ -14,19 +14,20 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin
- * aloittamiseen, poistumiseen ja ruudukon tyhjentämiseen.
+ * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen,
+ * poistumiseen ja ruudukon tyhjentämiseen.
  *
  * @author Sofia
  */
 public class XOValikko extends JPanel {
+
     private Ruudukko ruudukko;
     private XOAlusta alusta;
     private PelinTila tila;
-    
 
     /**
      * Alustetaan valikko.
+     *
      * @param ruudukko ruudukko, jota muokataan
      * @param alusta pelialusta
      */
@@ -34,13 +35,13 @@ public class XOValikko extends JPanel {
         super(new GridLayout(1, 2));
         this.ruudukko = ruudukko;
         this.alusta = alusta;
-        
+
         luoKomponentit();
     }
 
     private void luoKomponentit() {
         JButton uusiPeli = new JButton("Uusi peli");
-        
+
         JButton poistu = new JButton("Poistu");
 
         UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.alusta);

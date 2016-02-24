@@ -17,6 +17,7 @@ public class Koordinaatit {
 
     /**
      * Konstruktorille annetaan x - ja y-koordinaatit kokonaislukuina.
+     *
      * @param x x-koordinaatti
      * @param y y-koordinaatti
      */

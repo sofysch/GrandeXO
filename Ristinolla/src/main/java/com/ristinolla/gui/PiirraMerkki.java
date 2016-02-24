@@ -22,12 +22,9 @@ import java.awt.event.MouseListener;
  */
 public class PiirraMerkki implements MouseListener {
 
-    private Ruutu ruutu;
     private XOAlusta alusta;
     private Ruudukko ruudukko;
     private Merkki vuorossa;
-    private PelinTila tila;
-    private Component component;
 
     /**
      * Konstruktori saa paramentreina pelialustan ja ruudukon.
@@ -36,10 +33,8 @@ public class PiirraMerkki implements MouseListener {
      * @param ruudukko Ruudukko, jonka tilaa päivitetään
      */
     public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
-//        this.alusta = alusta;
         this.ruudukko = ruudukko;
         this.alusta = alusta;
-        
         this.vuorossa = alusta.getVuorossa();
 
     }
@@ -53,7 +48,7 @@ public class PiirraMerkki implements MouseListener {
      */
     @Override
     public void mouseClicked(MouseEvent me) {
-        
+
         System.out.println(alusta.getTila());
         int x = me.getX();
         int y = me.getY();
@@ -62,18 +57,17 @@ public class PiirraMerkki implements MouseListener {
         int sarake = x / XOAlusta.RUUDUN_SIVU;
         Koordinaatit k = new Koordinaatit(sarake, rivi);
         if (alusta.getTila() == PelinTila.PELAA) {
-        
+
             if (this.ruudukko.getRuutu(k).onTyhja()) {
                 this.ruudukko.setMerkki(k, this.vuorossa);
-                
+
                 paivitaTila(this.vuorossa, k);
 
                 this.vuorossa = (this.vuorossa == Merkki.RISTI) ? Merkki.NOLLA : Merkki.RISTI;
 
-            
-            this.alusta.paivitaViesti(alusta.getTila(), this.vuorossa);
-            this.alusta.repaint();
-                }
+                this.alusta.paivitaViesti(alusta.getTila(), this.vuorossa);
+                this.alusta.repaint();
+            }
         }
     }
 
@@ -89,14 +83,14 @@ public class PiirraMerkki implements MouseListener {
             if (this.vuorossa == Merkki.NOLLA) {
                 alusta.setTila(PelinTila.O_VOITTI);
             } else if (this.vuorossa == Merkki.RISTI) {
-                alusta.setTila( PelinTila.X_VOITTI);
+                alusta.setTila(PelinTila.X_VOITTI);
             }
         } else if (this.ruudukko.onTaynna()) {
             alusta.setTila(PelinTila.TASAPELI);
         } else {
             alusta.setTila(PelinTila.PELAA);
         }
-        
+
     }
 
     @Override

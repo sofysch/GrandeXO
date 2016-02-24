@@ -77,7 +77,6 @@ public class XOAlusta extends JPanel {
         super.paintComponent(g);
         piirraRuudukko(g);
         piirraRuudut(g);
-        
 
     }
 
@@ -104,7 +103,7 @@ public class XOAlusta extends JPanel {
         this.tila = PelinTila.PELAA;
         this.viesti.setForeground(Color.DARK_GRAY);
         this.viesti.setText("Risti aloittaa!");
-        
+
     }
 
     public void paivitaViesti(PelinTila tila, Merkki merkki) {
@@ -121,7 +120,7 @@ public class XOAlusta extends JPanel {
                 this.viesti.setForeground(Color.WHITE);
                 viesti.setText("Tasapeli! Aloita uusi peli!");
                 break;
-            case O_VOITTI: 
+            case O_VOITTI:
                 this.viesti.setForeground(Color.yellow);
                 viesti.setText("Nolla voitti! Onnea!");
                 break;

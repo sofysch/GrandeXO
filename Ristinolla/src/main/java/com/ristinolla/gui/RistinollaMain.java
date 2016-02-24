@@ -7,9 +7,9 @@ package com.ristinolla.gui;
 
 /**
  * Ristinolla-pelin main-luokka.
+ *
  * @author Sofia
  */
-
 import com.ristinolla.logiikka.Ruudukko;
 import javax.swing.SwingUtilities;
 
@@ -17,15 +17,13 @@ public class RistinollaMain {
 
     /**
      * Main.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         XOFrame peli = new XOFrame(new Ruudukko());
         SwingUtilities.invokeLater(peli);
-        
+
         // TODO code application logic here
-        
     }
 }
-    
-

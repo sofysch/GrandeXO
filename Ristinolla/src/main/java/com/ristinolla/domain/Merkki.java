@@ -6,9 +6,11 @@
 package com.ristinolla.domain;
 
 /**
- * Ruutujen mahdolliset tilat. 
+ * Ruutujen mahdolliset tilat.
+ *
  * @author Sofia
  */
 public enum Merkki {
+
     RISTI, NOLLA, TYHJA
 }
