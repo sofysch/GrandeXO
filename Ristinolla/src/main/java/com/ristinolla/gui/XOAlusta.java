@@ -97,15 +97,24 @@ public class XOAlusta extends JPanel {
         this.tila = tila;
     }
 
+    /**
+     * Alustaa uuden pelin tyhjentämällä ruudukon ja asettamalla viestin
+     * pelaajalle.
+     */
     public void alustaPeli() {
         this.ruudukko.tyhjenna();
-        this.vuorossa = Merkki.RISTI;
-        this.tila = PelinTila.PELAA;
         this.viesti.setForeground(Color.DARK_GRAY);
         this.viesti.setText("Risti aloittaa!");
 
     }
 
+    /**
+     * Päivittää pelaajalle näkyvän viestin pelin tilasta ja kumpi merkki tekee
+     * seuraavan siirron.
+     *
+     * @param tila pelin tila
+     * @param merkki vuorossa oleva merkki
+     */
     public void paivitaViesti(PelinTila tila, Merkki merkki) {
         switch (tila) {
             case PELAA:
@@ -135,6 +144,11 @@ public class XOAlusta extends JPanel {
         }
     }
 
+    /**
+     * Piirtaa ruudukon.
+     *
+     * @param g graphics
+     */
     public void piirraRuudukko(Graphics g) {
         g.setColor(Color.BLACK);
 
@@ -145,6 +159,11 @@ public class XOAlusta extends JPanel {
         g.drawLine(this.ruudukonLeveys * 2, 5, this.ruudukonLeveys * 2, XOAlusta.KORKEUS - 5);
     }
 
+    /**
+     * Piirtää kaikki ruudukon ruudut.
+     *
+     * @param g Graphics
+     */
     public void piirraRuudut(Graphics g) {
         BufferedImage nolla = null;
         BufferedImage risti = null;
@@ -157,7 +176,7 @@ public class XOAlusta extends JPanel {
         }
 
         for (int rivi = 0; rivi < this.ruudukko.getRivit(); rivi++) {
-            for (int sarake = 0; sarake < this.ruudukko.getSarakkeita(); sarake++) {
+            for (int sarake = 0; sarake < this.ruudukko.getSarakkeet(); sarake++) {
 
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
 

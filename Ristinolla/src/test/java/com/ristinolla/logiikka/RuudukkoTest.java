@@ -135,7 +135,7 @@ public class RuudukkoTest {
     @Test
     public void tunnistaaTaydenRuudukon() {
         for (int rivi = 0; rivi < ruudukko.getRivit(); rivi++) {
-            for (int sarake = 0; sarake < ruudukko.getSarakkeita(); sarake++) {
+            for (int sarake = 0; sarake < ruudukko.getSarakkeet(); sarake++) {
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
                 ruudukko.setMerkki(k, Merkki.RISTI);
             }
@@ -146,7 +146,7 @@ public class RuudukkoTest {
     @Test
     public void ruudukkoEiTaynnaJosJonkinRuudunTilaOnTyhja() {
         for (int rivi = 0; rivi < ruudukko.getRivit(); rivi++) {
-            for (int sarake = 0; sarake < ruudukko.getSarakkeita(); sarake++) {
+            for (int sarake = 0; sarake < ruudukko.getSarakkeet(); sarake++) {
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
                 ruudukko.setMerkki(k, Merkki.RISTI);
             }
@@ -158,7 +158,7 @@ public class RuudukkoTest {
     @Test
     public void tyhjentaaRuudukon() {
         for (int rivi = 0; rivi < ruudukko.getRivit(); rivi++) {
-            for (int sarake = 0; sarake < ruudukko.getSarakkeita(); sarake++) {
+            for (int sarake = 0; sarake < ruudukko.getSarakkeet(); sarake++) {
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
                 ruudukko.setMerkki(k, Merkki.RISTI);
             }

@@ -14,8 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen,
- * poistumiseen ja ruudukon tyhjentämiseen.
+ * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen ja
+ * poistumiseen.
  *
  * @author Sofia
  */
@@ -23,7 +23,6 @@ public class XOValikko extends JPanel {
 
     private Ruudukko ruudukko;
     private XOAlusta alusta;
-    private PelinTila tila;
 
     /**
      * Alustetaan valikko.

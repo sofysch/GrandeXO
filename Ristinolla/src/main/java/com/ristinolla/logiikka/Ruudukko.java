@@ -7,8 +7,7 @@ package com.ristinolla.logiikka;
 
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
-import com.ristinolla.gui.XOAlusta;
-import java.awt.*;
+
 
 /**
  * Luokka muodostaa ruuduista ruudukon, jota pääsee eri metodien avulla
@@ -30,8 +29,6 @@ public class Ruudukko {
     public Ruudukko() {
         this.riveja = 3;
         this.sarakkeita = 3;
-//        this.korkeus = XOAlusta.RUUDUN_SIVU;
-//        this.leveys = XOAlusta.RUUDUN_SIVU;
 
         this.ruudukko = new Ruutu[this.riveja][this.sarakkeita];
         for (int rivi = 0; rivi < this.riveja; rivi++) {
@@ -70,6 +67,11 @@ public class Ruudukko {
         }
     }
 
+    /**
+     * Metodilla saa tiedon onko kaikkien ruutujen tila TYHJA.
+     *
+     * @return true, jos on
+     */
     public boolean onTyhja() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
@@ -145,7 +147,7 @@ public class Ruudukko {
         return this.riveja;
     }
 
-    public int getSarakkeita() {
+    public int getSarakkeet() {
         return this.sarakkeita;
     }
 
@@ -156,9 +158,10 @@ public class Ruudukko {
      * @return ruutu
      */
     public Ruutu getRuutu(Koordinaatit koordinaatit) {
+
         int rivi = koordinaatit.getX();
         int sarake = koordinaatit.getY();
         return this.ruudukko[rivi][sarake];
-    }
 
+    }
 }

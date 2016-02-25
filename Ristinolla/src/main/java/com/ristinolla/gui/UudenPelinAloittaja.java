@@ -12,19 +12,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
- * Aloittaa uuden pelin klikatessa. Työstetään.
+ * Alustaa ja piirtää uuden pelin.
  *
  * @author Sofia
  */
 public class UudenPelinAloittaja implements MouseListener {
 
-    private Ruudukko ruudukko;
     private XOAlusta alusta;
 
     /**
-     * Työn alla.
      *
-     * @param ruudukko tyhjennettävä ruudukko
+     *
      * @param alusta alusta, joka piirretään tyhjentämisen jälkeen uudestaan
      */
     public UudenPelinAloittaja(XOAlusta alusta) {
@@ -36,7 +34,6 @@ public class UudenPelinAloittaja implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         this.alusta.alustaPeli();
         this.alusta.repaint();
-        
 
     }
 

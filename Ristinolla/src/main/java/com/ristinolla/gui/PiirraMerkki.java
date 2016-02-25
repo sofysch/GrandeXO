@@ -48,14 +48,18 @@ public class PiirraMerkki implements MouseListener {
      */
     @Override
     public void mouseClicked(MouseEvent me) {
+        if (this.ruudukko.onTyhja()) {
+            alusta.setTila(PelinTila.PELAA);
+            this.vuorossa = Merkki.RISTI;
+        }
 
-        
         int x = me.getX();
         int y = me.getY();
 
         int rivi = y / XOAlusta.RUUDUN_SIVU;
         int sarake = x / XOAlusta.RUUDUN_SIVU;
         Koordinaatit k = new Koordinaatit(sarake, rivi);
+
         if (alusta.getTila() == PelinTila.PELAA) {
 
             if (this.ruudukko.getRuutu(k).onTyhja()) {
@@ -64,11 +68,11 @@ public class PiirraMerkki implements MouseListener {
                 paivitaTila(this.vuorossa, k);
 
                 this.vuorossa = (this.vuorossa == Merkki.RISTI) ? Merkki.NOLLA : Merkki.RISTI;
-
                 this.alusta.paivitaViesti(alusta.getTila(), this.vuorossa);
-                this.alusta.repaint();
             }
         }
+
+        this.alusta.repaint();
     }
 
     /**
@@ -79,10 +83,11 @@ public class PiirraMerkki implements MouseListener {
      * @param k koordinaatit, johon edellinen merkki asetettiin
      */
     public void paivitaTila(Merkki vuorossa, Koordinaatit k) {
-        if (this.ruudukko.voitto(this.vuorossa, k)) {
-            if (this.vuorossa == Merkki.NOLLA) {
+        vuorossa = this.vuorossa;
+        if (this.ruudukko.voitto(vuorossa, k)) {
+            if (vuorossa == Merkki.NOLLA) {
                 alusta.setTila(PelinTila.O_VOITTI);
-            } else if (this.vuorossa == Merkki.RISTI) {
+            } else if (vuorossa == Merkki.RISTI) {
                 alusta.setTila(PelinTila.X_VOITTI);
             }
         } else if (this.ruudukko.onTaynna()) {

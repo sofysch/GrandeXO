@@ -7,15 +7,6 @@ package com.ristinolla.logiikka;
 
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
-import com.ristinolla.gui.XOAlusta;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 /**
  * Luokka tarjoaa metodeja yksittÃƒÂ¤isen ruudun tietoihin ja sen

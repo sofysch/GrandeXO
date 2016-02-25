@@ -6,7 +6,7 @@
 package com.ristinolla.domain;
 
 /**
- * Pelin mahdolliset tilat. Ei vielä käytössä logiikassa.
+ * Pelin mahdolliset tilat.
  *
  * @author Sofia
  */
