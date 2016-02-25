@@ -4,7 +4,7 @@
 
 Toteutetaan siis Ristinolla-peli. 
 
-Peli‰ voi pelata perinteisesti 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti suuremmalla ruudukolla. Toteutetaan, jos ehtii.) Perinteisess‰ versiossa tavoitteena on saada kolme risti‰ tai ympyr‰‰ samalle pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa .( Isommassa versiossa  on suurempi ruudukko ja tavoitteena viisi risti‰/ympyr‰‰ samalle riville. Pelaaja valitsee pelattavan version.) Pelattujen pelien m‰‰r‰ tallentuu, samoin voittojen m‰‰r‰.
+Peli‰ pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme risti‰ tai ympyr‰‰ samalle pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa.
 
 
 
@@ -32,5 +32,9 @@ Peli‰ voi pelata perinteisesti 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti 
 
 ![uusiPeli](UusiPeli.png)
 
+**Rakennekuvaus**
 
+Peli koostuu kahdesta logiikkaluokasta, Ruutu ja Ruudukko, kahdesta enum -tyyppisest‰ luokasta, PelinTila ja Merkki, ja Koordinaatit-luokasta.
+Ruudukko on kaksiulotteinen taulukko ja se koostuu Ruutu-olioista. Ruudulla on koordinaatit ja Merkki-enumluokan avulla m‰‰ritelt‰v‰ tila, eli se sijaitsee tietyss‰ kohtaa ruudukkoa ja sen tila voi olla 
+risti, nolla tai tyhj‰. PelinTila -enumluokan avulla voi m‰‰ritt‰‰, onko peli kesken vai p‰‰ttyikˆ peli jomman kumman merkin voittoon tai tasapeliin.
 
