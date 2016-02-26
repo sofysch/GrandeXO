@@ -21,7 +21,7 @@ public class UudenPelinAloittaja implements MouseListener {
     private XOAlusta alusta;
 
     /**
-     *
+     *Pelialusta, jolle Ruudukko piirtyy.
      *
      * @param alusta alusta, joka piirretään tyhjentämisen jälkeen uudestaan
      */
