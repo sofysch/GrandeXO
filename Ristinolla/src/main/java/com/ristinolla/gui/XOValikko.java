@@ -5,34 +5,30 @@
  */
 package com.ristinolla.gui;
 
-import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
  * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen ja
- * poistumiseen.
+ * pelistä poistumiseen.
  *
  * @author Sofia
  */
 public class XOValikko extends JPanel {
 
-    private Ruudukko ruudukko;
+    
     private XOAlusta alusta;
 
     /**
      * Alustetaan valikko.
      *
-     * @param ruudukko ruudukko, jota muokataan
      * @param alusta pelialusta
      */
-    public XOValikko(Ruudukko ruudukko, XOAlusta alusta) {
-        super(new GridLayout(1, 2));
-        this.ruudukko = ruudukko;
+    public XOValikko( XOAlusta alusta) {
+        super(new GridLayout(1, 3));
+       
         this.alusta = alusta;
 
         luoKomponentit();
@@ -40,14 +36,18 @@ public class XOValikko extends JPanel {
 
     private void luoKomponentit() {
         JButton uusiPeli = new JButton("Uusi peli");
-
         JButton poistu = new JButton("Poistu");
+        JButton kumoa = new JButton("Kumoa");
 
         UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.alusta);
         uusiPeli.addMouseListener(aloittaja);
+        
+        PelinSulkija sulkija = new PelinSulkija(this.alusta);
+        poistu.addMouseListener(sulkija);
 
         add(uusiPeli);
         add(poistu);
+        add(kumoa);
 
     }
 

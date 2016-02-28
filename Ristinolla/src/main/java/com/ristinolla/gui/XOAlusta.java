@@ -41,6 +41,9 @@ public class XOAlusta extends JPanel {
     private JLabel viesti;
     private Merkki vuorossa;
     private PelinTila tila;
+    
+    private int X_Voitot;
+    private int O_Voitot;
 
     /**
      * Alustetaan tyhjä ruudukko ja lisätään alustalle mouseListener, alustetaan
@@ -58,17 +61,13 @@ public class XOAlusta extends JPanel {
         this.tila = PelinTila.PELAA;
         this.ruudukko.tyhjenna();
         this.vuorossa = Merkki.RISTI;
+        this.O_Voitot = 0;
+        this.X_Voitot = 0;
 
         addMouseListener(new PiirraMerkki(this, this.ruudukko));
 
         this.viesti = new JLabel("Risti aloittaa!");
-        this.viesti.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 20));
-        this.viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
-        this.viesti.setOpaque(true);
-        this.viesti.setBackground(Color.LIGHT_GRAY);
-        setLayout(new BorderLayout());
-        add(this.viesti, BorderLayout.PAGE_END);
-        setPreferredSize(new Dimension(LEVEYS, KORKEUS + 30));
+        alustaViesti(this.viesti);
 
     }
 
@@ -107,6 +106,15 @@ public class XOAlusta extends JPanel {
         this.viesti.setText("Risti aloittaa!");
 
     }
+    private void alustaViesti(JLabel viesti){
+        viesti.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 20));
+        viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
+        viesti.setOpaque(true);
+        viesti.setBackground(Color.LIGHT_GRAY);
+        setLayout(new BorderLayout());
+        add(viesti, BorderLayout.PAGE_END);
+        setPreferredSize(new Dimension(LEVEYS, KORKEUS + 30));
+    }
 
     /**
      * Päivittää pelaajalle näkyvän viestin pelin tilasta ja kumpi merkki tekee
@@ -127,15 +135,17 @@ public class XOAlusta extends JPanel {
                 break;
             case TASAPELI:
                 this.viesti.setForeground(Color.WHITE);
-                viesti.setText("Tasapeli! Aloita uusi peli!");
+                viesti.setText("Tasapeli! " + haeVoitot());
                 break;
             case O_VOITTI:
                 this.viesti.setForeground(Color.yellow);
-                viesti.setText("Nolla voitti! Onnea!");
+                this.O_Voitot ++;
+                viesti.setText("Nolla voitti! Onnea! " + haeVoitot());
                 break;
             case X_VOITTI:
-                this.viesti.setForeground(Color.BLUE);
-                viesti.setText("Risti voitti! Onnea!");
+                this.viesti.setForeground(Color.GREEN);
+                this.X_Voitot ++;
+                viesti.setText("Risti voitti! Onnea! " + haeVoitot());
                 break;
             default:
                 viesti.setText("Risti aloittaa!");
@@ -143,6 +153,10 @@ public class XOAlusta extends JPanel {
 
         }
     }
+    public String haeVoitot(){
+        return "Tilanne: Risti " + this.X_Voitot +". Nolla: " + this.O_Voitot;
+    }
+   
 
     /**
      * Piirtaa ruudukon.

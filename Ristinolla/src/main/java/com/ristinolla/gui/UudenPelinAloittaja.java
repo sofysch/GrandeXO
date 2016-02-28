@@ -5,9 +5,7 @@
  */
 package com.ristinolla.gui;
 
-import com.ristinolla.domain.Merkki;
-import com.ristinolla.domain.PelinTila;
-import com.ristinolla.logiikka.Ruudukko;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 

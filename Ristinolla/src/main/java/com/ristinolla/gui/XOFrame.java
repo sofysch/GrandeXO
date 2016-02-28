@@ -10,20 +10,13 @@ package com.ristinolla.gui;
  *
  * @author Sofia
  */
-import com.ristinolla.domain.Merkki;
-import com.ristinolla.domain.PelinTila;
+
 import com.ristinolla.logiikka.Ruudukko;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
-import javax.swing.BorderFactory;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class XOFrame implements Runnable {
@@ -43,7 +36,7 @@ public class XOFrame implements Runnable {
     public XOFrame(Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
         this.alusta = new XOAlusta(this.ruudukko);
-        this.valikko = new XOValikko(ruudukko, this.alusta);
+        this.valikko = new XOValikko(this.alusta);
 
     }
 
