@@ -110,3 +110,23 @@ Koska käyttöliittymäyritelmiin tuhlaantui paljon aikaa, ei lopullista koodia ole
 6h Checkstyle -raportti, testien tekemistä, pit-raportti, sekvenssikaaviot, aiheen kuvauksen päivitys, koodikatselmointi.
 En osaa testata logiikan piirtämismetodeja, siksi testien rivikattavuus ei ole niin hyvä.
 
+**Ma 22.2.**
+
+1h 40 min MouseListener, UusiPeli -nappi toimii joten kuten.
+
+**Ti 23.2.**
+
+1h Koodin uudelleenjärjestelyä, ruudun ja ruudukon piirtämismetodit siirretty pois logiikasta käyttöliittymään.
+
+**Ke 24.2.**
+
+4h Uuden pelin aloittaminen toimii, viestit pelaajille vielä sekaisin. Pit-raportti, 100% rivikattavuus & mutanttien hävittäminen.
+
+**To 25.2.**
+
+3h Viestit ja vuorot vaihtuvat nyt oikein, kun painaa UusiPeli -nappia. Rakenteen kuvaus ja jar-tiedoston luonti. 
+
+**Pe 26.2.**
+
+4h Jar-tiedoston uudelleenluonti, ohjeiden kirjoittaminen, checkstyle -korjaukset ja -raportti.
+
