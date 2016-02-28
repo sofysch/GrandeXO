@@ -128,5 +128,5 @@ En osaa testata logiikan piirtämismetodeja, siksi testien rivikattavuus ei ole n
 
 **Pe 26.2.**
 
-4h Jar-tiedoston uudelleenluonti, ohjeiden kirjoittaminen, checkstyle -korjaukset ja -raportti.
+4h Jar-tiedoston uudelleenluonti, ohjeiden kirjoittaminen, checkstyle -korjaukset ja -raportti, koodin siivoilua.
 
