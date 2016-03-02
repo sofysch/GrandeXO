@@ -15,7 +15,6 @@ Peliä pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme ristiä tai
 
 **Käyttäjän toiminnot:**
 
-(- Valitsee pelattavan pelin: pieni / suuri ruudukko)
 - Merkitsee ristin / ympyrän haluamaansa ruutuun
 - Aloittaa uuden pelin
 

@@ -49,14 +49,12 @@ public class XOAlusta extends JPanel {
      * Alustetaan tyhjä ruudukko ja lisätään alustalle mouseListener, alustetaan
      * vuorossa oleva merkki ja pelin tila sekä alustan koko ja taustaväri.
      *
-     * @param ruudukko ruudukko, joka piirretään
      */
     public XOAlusta() {
         setSize(LEVEYS, KORKEUS);
         super.setBackground(Color.LIGHT_GRAY);
         this.ruudukko = new Ruudukko();
 
-//        this.ruudukko = ruudukko;
         this.ruudukonKorkeus = XOAlusta.RUUDUN_SIVU;
         this.ruudukonLeveys = XOAlusta.RUUDUN_SIVU;
         this.tila = PelinTila.PELAA;
@@ -127,7 +125,7 @@ public class XOAlusta extends JPanel {
     public void paivitaViesti(PelinTila tila, Merkki merkki) {
         switch (tila) {
             case PELAA:
-                this.viesti.setForeground(Color.MAGENTA);
+                this.viesti.setForeground(Color.RED);
                 if (merkki == Merkki.RISTI) {
                     this.viesti.setText("Risti vuorossa!");
                 } else if (merkki == Merkki.NOLLA) {
@@ -155,7 +153,7 @@ public class XOAlusta extends JPanel {
         }
     }
     public String haeVoitot(){
-        return "Tilanne: Risti " + this.X_Voitot +". Nolla: " + this.O_Voitot;
+        return "Tilanne: Risti " + this.X_Voitot +"; Nolla: " + this.O_Voitot;
     }
    
 

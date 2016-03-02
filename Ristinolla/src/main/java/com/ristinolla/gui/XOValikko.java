@@ -17,8 +17,6 @@ import javax.swing.JPanel;
  * @author Sofia
  */
 public class XOValikko extends JPanel {
-
-    
     private XOAlusta alusta;
 
     /**
