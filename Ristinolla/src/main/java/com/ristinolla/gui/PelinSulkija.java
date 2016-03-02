@@ -14,10 +14,8 @@ import java.awt.event.MouseListener;
  */
 public class PelinSulkija implements MouseListener{
     
-    private XOAlusta alusta;
-    
-    public PelinSulkija(XOAlusta alusta){
-        this.alusta = alusta;
+    public PelinSulkija(){
+        
     }
 
     @Override

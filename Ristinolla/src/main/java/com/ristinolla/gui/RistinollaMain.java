@@ -21,7 +21,7 @@ public class RistinollaMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        XOFrame peli = new XOFrame(new Ruudukko());
+        XOFrame peli = new XOFrame();
         SwingUtilities.invokeLater(peli);
 
         // TODO code application logic here

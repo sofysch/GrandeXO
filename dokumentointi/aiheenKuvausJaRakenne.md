@@ -22,7 +22,7 @@ Peliä pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme ristiä tai
 **Luokkakaavio:**
 
 
-![Luokkakaavio](http://yuml.me/011b7650)
+![Luokkakaavio](http://yuml.me/93809122)
 
 
 **Sekvenssikaaviot**

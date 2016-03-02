@@ -51,11 +51,12 @@ public class XOAlusta extends JPanel {
      *
      * @param ruudukko ruudukko, joka piirretään
      */
-    public XOAlusta(Ruudukko ruudukko) {
+    public XOAlusta() {
         setSize(LEVEYS, KORKEUS);
         super.setBackground(Color.LIGHT_GRAY);
+        this.ruudukko = new Ruudukko();
 
-        this.ruudukko = ruudukko;
+//        this.ruudukko = ruudukko;
         this.ruudukonKorkeus = XOAlusta.RUUDUN_SIVU;
         this.ruudukonLeveys = XOAlusta.RUUDUN_SIVU;
         this.tila = PelinTila.PELAA;

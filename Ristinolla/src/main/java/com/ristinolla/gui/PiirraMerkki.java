@@ -9,8 +9,7 @@ import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
 import com.ristinolla.domain.PelinTila;
 import com.ristinolla.logiikka.Ruudukko;
-import com.ristinolla.logiikka.Ruutu;
-import java.awt.Component;
+
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -25,8 +24,7 @@ public class PiirraMerkki implements MouseListener {
     private XOAlusta alusta;
     private Ruudukko ruudukko;
     private Merkki vuorossa;
-//    private int X_Voitot;
-//    private int O_Voitot;
+
 
     /**
      * Konstruktori saa paramentreina pelialustan ja ruudukon.
@@ -38,8 +36,6 @@ public class PiirraMerkki implements MouseListener {
         this.ruudukko = ruudukko;
         this.alusta = alusta;
         this.vuorossa = alusta.getVuorossa();
-//        this.O_Voitot = 0;
-//        this.X_Voitot = 0;
     }
 
     /**

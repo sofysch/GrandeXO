@@ -42,7 +42,7 @@ public class XOValikko extends JPanel {
         UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.alusta);
         uusiPeli.addMouseListener(aloittaja);
         
-        PelinSulkija sulkija = new PelinSulkija(this.alusta);
+        PelinSulkija sulkija = new PelinSulkija();
         poistu.addMouseListener(sulkija);
 
         add(uusiPeli);

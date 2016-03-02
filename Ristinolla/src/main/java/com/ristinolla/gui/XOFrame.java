@@ -23,7 +23,7 @@ public class XOFrame implements Runnable {
 
     private JFrame frame;
     private XOValikko valikko;
-    private Ruudukko ruudukko;
+//    private Ruudukko ruudukko;
 
     private XOAlusta alusta;
 
@@ -33,9 +33,9 @@ public class XOFrame implements Runnable {
      *
      * @param ruudukko ruudukko
      */
-    public XOFrame(Ruudukko ruudukko) {
-        this.ruudukko = ruudukko;
-        this.alusta = new XOAlusta(this.ruudukko);
+    public XOFrame() {
+//        this.ruudukko = ruudukko;
+        this.alusta = new XOAlusta();
         this.valikko = new XOValikko(this.alusta);
 
     }
