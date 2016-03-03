@@ -11,12 +11,13 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen ja
- * pelistä poistumiseen.
+ * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen ja pelistä
+ * poistumiseen.
  *
  * @author Sofia
  */
 public class XOValikko extends JPanel {
+
     private XOAlusta alusta;
 
     /**
@@ -24,9 +25,9 @@ public class XOValikko extends JPanel {
      *
      * @param alusta pelialusta
      */
-    public XOValikko( XOAlusta alusta) {
+    public XOValikko(XOAlusta alusta) {
         super(new GridLayout(1, 3));
-       
+
         this.alusta = alusta;
 
         luoKomponentit();
@@ -35,17 +36,15 @@ public class XOValikko extends JPanel {
     private void luoKomponentit() {
         JButton uusiPeli = new JButton("Uusi peli");
         JButton poistu = new JButton("Poistu");
-        JButton kumoa = new JButton("Kumoa");
 
         UudenPelinAloittaja aloittaja = new UudenPelinAloittaja(this.alusta);
         uusiPeli.addMouseListener(aloittaja);
-        
+
         PelinSulkija sulkija = new PelinSulkija();
         poistu.addMouseListener(sulkija);
 
         add(uusiPeli);
         add(poistu);
-        add(kumoa);
 
     }
 

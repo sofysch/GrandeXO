@@ -9,8 +9,8 @@ import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
 
 /**
- * Luokka tarjoaa metodeja yksittÃƒÂ¤isen ruudun tietoihin ja sen
- * piirtÃƒÂ¤miseen ja muokkaamiseen. Oletustila on TYHJA.
+ * Luokka tarjoaa metodeja yksittäisen ruudun tietoihin ja sen piirtämiseen ja
+ * muokkaamiseen. Oletustila on TYHJA.
  *
  * @author Sofia
  */
@@ -38,24 +38,24 @@ public class Ruutu {
         this.tila = Merkki.TYHJA;
     }
 
-    public int getX() {
-        return this.sijainti.getX();
+    public int haeX() {
+        return this.sijainti.haeX();
     }
 
-    public int getY() {
-        return this.sijainti.getY();
+    public int haeY() {
+        return this.sijainti.haeY();
     }
 
     /**
-     * Tarkistaa, onko ruudun tila tyhjÃƒÂ¤.
+     * Tarkistaa, onko ruudun tila TYHJA.
      *
      * @return true, jos tyhjä, muuten false
      */
     public boolean onTyhja() {
-        return getTila() == (Merkki.TYHJA);
+        return haeTila() == (Merkki.TYHJA);
     }
 
-    public Merkki getTila() {
+    public Merkki haeTila() {
         return this.tila;
     }
 
@@ -64,7 +64,7 @@ public class Ruutu {
      *
      * @param merkki RISTI tai NOLLA.
      */
-    public void setMerkki(Merkki merkki) {
+    public void asetaMerkki(Merkki merkki) {
         if (onTyhja()) {
             if (merkki == (Merkki.RISTI)) {
                 this.tila = Merkki.RISTI;
@@ -72,7 +72,7 @@ public class Ruutu {
                 this.tila = Merkki.NOLLA;
             }
         } else {
-            this.tila = this.getTila();
+            this.tila = this.haeTila();
         }
 
     }

@@ -47,39 +47,39 @@ public class RuutuTest {
     //
     @Test
     public void konstruktoriLuoSijainninOikein() {
-        assertEquals(1, ruutu.getX());
-        assertEquals(2,ruutu.getY());
+        assertEquals(1, ruutu.haeX());
+        assertEquals(2,ruutu.haeY());
     
     }
 
     @Test
     public void konstruktoriLuoTyhjanRuudun() {
-        assertEquals(Merkki.TYHJA, ruutu.getTila());
+        assertEquals(Merkki.TYHJA, ruutu.haeTila());
     }
 
     @Test
     public void metodiTyhjentaaRuudun() {
-        ruutu.setMerkki(Merkki.RISTI);
+        ruutu.asetaMerkki(Merkki.RISTI);
         ruutu.tyhjenna();
-        assertEquals(Merkki.TYHJA, ruutu.getTila());
+        assertEquals(Merkki.TYHJA, ruutu.haeTila());
     }
 
     @Test
     public void metodiAsettaaRuutuunRistin() {
-        ruutu.setMerkki(Merkki.RISTI);
-        assertEquals(Merkki.RISTI, ruutu.getTila());
+        ruutu.asetaMerkki(Merkki.RISTI);
+        assertEquals(Merkki.RISTI, ruutu.haeTila());
     }
     @Test
     public void metodiAsettaaRuutuunNollan() {
-        ruutu.setMerkki(Merkki.NOLLA);
-        assertEquals(Merkki.NOLLA, ruutu.getTila());
+        ruutu.asetaMerkki(Merkki.NOLLA);
+        assertEquals(Merkki.NOLLA, ruutu.haeTila());
     }
 
     @Test
     public void vainTyhjaanRuutuunVoiLaittaaMerkin() {
-        ruutu.setMerkki(Merkki.RISTI);
-        ruutu.setMerkki(Merkki.NOLLA);
-        assertEquals(Merkki.RISTI, ruutu.getTila());
+        ruutu.asetaMerkki(Merkki.RISTI);
+        ruutu.asetaMerkki(Merkki.NOLLA);
+        assertEquals(Merkki.RISTI, ruutu.haeTila());
     }
     
     

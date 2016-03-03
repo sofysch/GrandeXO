@@ -12,27 +12,31 @@ import java.awt.event.MouseListener;
  *
  * @author Sofia
  */
-public class PelinSulkija implements MouseListener{
-    
-    public PelinSulkija(){
-        
+public class PelinSulkija implements MouseListener {
+
+    public PelinSulkija() {
+
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
         System.exit(0);
-        }
+    }
 
     @Override
-    public void mousePressed(MouseEvent me) {}
+    public void mousePressed(MouseEvent me) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent me) {}
+    public void mouseReleased(MouseEvent me) {
+    }
 
     @Override
-    public void mouseEntered(MouseEvent me) {}
+    public void mouseEntered(MouseEvent me) {
+    }
 
     @Override
-    public void mouseExited(MouseEvent me) {}
-    
+    public void mouseExited(MouseEvent me) {
+    }
+
 }

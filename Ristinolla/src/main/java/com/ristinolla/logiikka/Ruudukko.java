@@ -8,7 +8,6 @@ package com.ristinolla.logiikka;
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
 
-
 /**
  * Luokka muodostaa ruuduista ruudukon, jota pääsee eri metodien avulla
  * käsittelemään ja piirtämään.
@@ -47,10 +46,10 @@ public class Ruudukko {
      * @param merkki Mikä merkki ruutuun asetetaan
      */
     public void setMerkki(Koordinaatit koordinaatit, Merkki merkki) {
-        int rivi = koordinaatit.getX();
-        int sarake = koordinaatit.getY();
+        int rivi = koordinaatit.haeX();
+        int sarake = koordinaatit.haeY();
         if (merkki != Merkki.TYHJA) {
-            this.ruudukko[rivi][sarake].setMerkki(merkki);
+            this.ruudukko[rivi][sarake].asetaMerkki(merkki);
 
         }
     }
@@ -92,9 +91,9 @@ public class Ruudukko {
      * @return ruudun tila, TYHJA, RISTI tai NOLLA.
      */
     public Merkki ruudunTila(Koordinaatit koordinaatit) {
-        int rivi = koordinaatit.getX();
-        int sarake = koordinaatit.getY();
-        return this.ruudukko[rivi][sarake].getTila();
+        int rivi = koordinaatit.haeX();
+        int sarake = koordinaatit.haeY();
+        return this.ruudukko[rivi][sarake].haeTila();
     }
 
     /**
@@ -105,21 +104,21 @@ public class Ruudukko {
      * @return true, jos voittorivi on muodostunut, false, jos ei.
      */
     public boolean voitto(Merkki merkki, Koordinaatit koordinaatit) {
-        int rivi = koordinaatit.getX();
-        int sarake = koordinaatit.getY();
+        int rivi = koordinaatit.haeX();
+        int sarake = koordinaatit.haeY();
         if (merkki != Merkki.TYHJA) {
-            if (this.ruudukko[rivi][0].getTila() == merkki
-                    && this.ruudukko[rivi][1].getTila() == merkki
-                    && this.ruudukko[rivi][2].getTila() == merkki // tarkistaa sarakkeen
-                    || this.ruudukko[0][sarake].getTila() == merkki
-                    && this.ruudukko[1][sarake].getTila() == merkki
-                    && this.ruudukko[2][sarake].getTila() == merkki // tarkistaa rivin
-                    || this.ruudukko[0][0].getTila() == merkki
-                    && this.ruudukko[1][1].getTila() == merkki // tarkistaa vinorivin
-                    && this.ruudukko[2][2].getTila() == merkki
-                    || this.ruudukko[2][0].getTila() == merkki
-                    && this.ruudukko[1][1].getTila() == merkki
-                    && this.ruudukko[0][2].getTila() == merkki) {    // tarkistaa toisen vinorivin
+            if (this.ruudukko[rivi][0].haeTila() == merkki
+                    && this.ruudukko[rivi][1].haeTila() == merkki
+                    && this.ruudukko[rivi][2].haeTila() == merkki // tarkistaa sarakkeen
+                    || this.ruudukko[0][sarake].haeTila() == merkki
+                    && this.ruudukko[1][sarake].haeTila() == merkki
+                    && this.ruudukko[2][sarake].haeTila() == merkki // tarkistaa rivin
+                    || this.ruudukko[0][0].haeTila() == merkki
+                    && this.ruudukko[1][1].haeTila() == merkki // tarkistaa vinorivin
+                    && this.ruudukko[2][2].haeTila() == merkki
+                    || this.ruudukko[2][0].haeTila() == merkki
+                    && this.ruudukko[1][1].haeTila() == merkki
+                    && this.ruudukko[0][2].haeTila() == merkki) {    // tarkistaa toisen vinorivin
                 return true;
             }
         }
@@ -135,7 +134,7 @@ public class Ruudukko {
     public boolean onTaynna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
             for (int sarake = 0; sarake < this.sarakkeita; sarake++) {
-                if (this.ruudukko[rivi][sarake].getTila() == (Merkki.TYHJA)) {
+                if (this.ruudukko[rivi][sarake].haeTila() == (Merkki.TYHJA)) {
                     return false;
                 }
             }
@@ -143,11 +142,11 @@ public class Ruudukko {
         return true;
     }
 
-    public int getRivit() {
+    public int haeRivit() {
         return this.riveja;
     }
 
-    public int getSarakkeet() {
+    public int haeSarakkeet() {
         return this.sarakkeita;
     }
 
@@ -157,10 +156,10 @@ public class Ruudukko {
      * @param koordinaatit Halutun ruudun koordinaatit
      * @return ruutu
      */
-    public Ruutu getRuutu(Koordinaatit koordinaatit) {
+    public Ruutu haeRuutu(Koordinaatit koordinaatit) {
 
-        int rivi = koordinaatit.getX();
-        int sarake = koordinaatit.getY();
+        int rivi = koordinaatit.haeX();
+        int sarake = koordinaatit.haeY();
         return this.ruudukko[rivi][sarake];
 
     }

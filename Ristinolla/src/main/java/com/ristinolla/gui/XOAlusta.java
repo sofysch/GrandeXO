@@ -41,7 +41,8 @@ public class XOAlusta extends JPanel {
     private JLabel viesti;
     private Merkki vuorossa;
     private PelinTila tila;
-    
+    private PiirraMerkki piirtaja;
+
     private int X_Voitot;
     private int O_Voitot;
 
@@ -62,9 +63,10 @@ public class XOAlusta extends JPanel {
         this.vuorossa = Merkki.RISTI;
         this.O_Voitot = 0;
         this.X_Voitot = 0;
+        this.piirtaja = new PiirraMerkki(this, this.ruudukko);
+        addMouseListener(this.piirtaja);
 
-        addMouseListener(new PiirraMerkki(this, this.ruudukko));
-
+//        addMouseListener(new PiirraMerkki(this, this.ruudukko));
         this.viesti = new JLabel("Risti aloittaa!");
         alustaViesti(this.viesti);
 
@@ -83,15 +85,15 @@ public class XOAlusta extends JPanel {
      *
      * @return RISTI tai NOLLA
      */
-    public Merkki getVuorossa() {
+    public Merkki haeVuorossa() {
         return this.vuorossa;
     }
 
-    public PelinTila getTila() {
+    public PelinTila haePelinTila() {
         return this.tila;
     }
 
-    public void setTila(PelinTila tila) {
+    public void asetaPelinTila(PelinTila tila) {
         this.tila = tila;
     }
 
@@ -101,15 +103,17 @@ public class XOAlusta extends JPanel {
      */
     public void alustaPeli() {
         this.ruudukko.tyhjenna();
-        this.viesti.setForeground(Color.DARK_GRAY);
-        this.viesti.setText("Risti aloittaa!");
-
+        Merkki vuoro = this.piirtaja.juuriVuorossa();
+        this.viesti.setForeground(Color.WHITE);
+        this.viesti.setText(vuoro + " aloittaa!");
     }
-    private void alustaViesti(JLabel viesti){
+
+    private void alustaViesti(JLabel viesti) {
         viesti.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 20));
         viesti.setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
         viesti.setOpaque(true);
         viesti.setBackground(Color.LIGHT_GRAY);
+        viesti.setForeground(Color.WHITE);
         setLayout(new BorderLayout());
         add(viesti, BorderLayout.PAGE_END);
         setPreferredSize(new Dimension(LEVEYS, KORKEUS + 30));
@@ -138,24 +142,28 @@ public class XOAlusta extends JPanel {
                 break;
             case O_VOITTI:
                 this.viesti.setForeground(Color.yellow);
-                this.O_Voitot ++;
+                this.O_Voitot++;
                 viesti.setText("Nolla voitti! Onnea! " + haeVoitot());
                 break;
             case X_VOITTI:
-                this.viesti.setForeground(Color.GREEN);
-                this.X_Voitot ++;
+                this.viesti.setForeground(Color.green);
+                this.X_Voitot++;
                 viesti.setText("Risti voitti! Onnea! " + haeVoitot());
                 break;
             default:
-                viesti.setText("Risti aloittaa!");
+                viesti.setText(haeVuorossa() + " aloittaa!");
                 break;
 
         }
     }
-    public String haeVoitot(){
-        return "Tilanne: Risti " + this.X_Voitot +"; Nolla: " + this.O_Voitot;
+
+    public String haeVoitot() {
+        return "Tilanne: Risti " + this.X_Voitot + " - Nolla " + this.O_Voitot;
     }
-   
+
+    public Ruudukko haeRuudukko() {
+        return this.ruudukko;
+    }
 
     /**
      * Piirtaa ruudukon.
@@ -185,19 +193,20 @@ public class XOAlusta extends JPanel {
             nolla = ImageIO.read(new File("NOLLA.png"));
             risti = ImageIO.read(new File("RISTI.png"));
         } catch (IOException ex) {
+            System.out.println(" Ristin ja nollan kuvia ei löydy");
             System.exit(1);
         }
 
-        for (int rivi = 0; rivi < this.ruudukko.getRivit(); rivi++) {
-            for (int sarake = 0; sarake < this.ruudukko.getSarakkeet(); sarake++) {
+        for (int rivi = 0; rivi < this.ruudukko.haeRivit(); rivi++) {
+            for (int sarake = 0; sarake < this.ruudukko.haeSarakkeet(); sarake++) {
 
                 Koordinaatit k = new Koordinaatit(rivi, sarake);
 
-                if (this.ruudukko.getRuutu(k).getTila() == Merkki.NOLLA) {
-                    g.drawImage(nolla, k.getX() * XOAlusta.RUUDUN_SIVU + 10, k.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
+                if (this.ruudukko.haeRuutu(k).haeTila() == Merkki.NOLLA) {
+                    g.drawImage(nolla, k.haeX() * XOAlusta.RUUDUN_SIVU + 10, k.haeY() * XOAlusta.RUUDUN_SIVU + 10, null);
 
-                } else if (this.ruudukko.getRuutu(k).getTila() == Merkki.RISTI) {
-                    g.drawImage(risti, k.getX() * XOAlusta.RUUDUN_SIVU + 10, k.getY() * XOAlusta.RUUDUN_SIVU + 10, null);
+                } else if (this.ruudukko.haeRuutu(k).haeTila() == Merkki.RISTI) {
+                    g.drawImage(risti, k.haeX() * XOAlusta.RUUDUN_SIVU + 10, k.haeY() * XOAlusta.RUUDUN_SIVU + 10, null);
 
                 }
             }

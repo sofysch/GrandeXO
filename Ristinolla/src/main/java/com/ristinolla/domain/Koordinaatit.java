@@ -26,11 +26,11 @@ public class Koordinaatit {
         this.y = y;
     }
 
-    public int getX() {
+    public int haeX() {
         return this.x;
     }
 
-    public int getY() {
+    public int haeY() {
         return this.y;
     }
 

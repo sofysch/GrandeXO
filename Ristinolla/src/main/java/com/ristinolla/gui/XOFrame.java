@@ -10,7 +10,6 @@ package com.ristinolla.gui;
  *
  * @author Sofia
  */
-
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -24,8 +23,7 @@ public class XOFrame implements Runnable {
     private XOAlusta alusta;
 
     /**
-     * Alustetaan valikkko, ruudukko, viesti ja sen fontti, lisäksi ikkunan koko
-     * ja väri.
+     * Alustetaan valikkko, ruudukko ja ikkunan koko ja väri.
      *
      */
     public XOFrame() {
@@ -45,7 +43,7 @@ public class XOFrame implements Runnable {
 
         frame.pack();
         frame.setLocationRelativeTo(null);
-        
+
         frame.setVisible(true);
     }
 

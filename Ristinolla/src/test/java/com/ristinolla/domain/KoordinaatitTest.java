@@ -45,11 +45,11 @@ public class KoordinaatitTest {
     }
     @Test
     public void oikeaXKoordinaatti(){
-        assertEquals(1, koordinaatit.getX());
+        assertEquals(1, koordinaatit.haeX());
     }
     @Test
     public void oikeaYKoordinaatti(){
-        assertEquals(2, koordinaatit.getY());
+        assertEquals(2, koordinaatit.haeY());
     }
 
     // TODO add test methods here.
