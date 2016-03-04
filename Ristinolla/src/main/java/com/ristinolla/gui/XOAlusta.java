@@ -38,7 +38,7 @@ public class XOAlusta extends JPanel {
     private JLabel viesti;
     private Merkki vuorossa;
     private PelinTila tila;
-    private PiirraMerkki piirtaja;
+    private MerkinPiirtaja piirtaja;
     private int ristinVoitot;
     private int nollanVoitot;
 
@@ -58,7 +58,7 @@ public class XOAlusta extends JPanel {
         this.vuorossa = Merkki.RISTI;
         this.nollanVoitot = 0;
         this.ristinVoitot = 0;
-        this.piirtaja = new PiirraMerkki(this, this.ruudukko);
+        this.piirtaja = new MerkinPiirtaja(this, this.ruudukko);
         addMouseListener(this.piirtaja);
         this.viesti = new JLabel("Risti aloittaa!");
         alustaViesti(this.viesti);

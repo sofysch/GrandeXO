@@ -18,7 +18,7 @@ import java.awt.event.MouseListener;
  *
  * @author Sofia
  */
-public class PiirraMerkki implements MouseListener {
+public class MerkinPiirtaja implements MouseListener {
 
     private XOAlusta alusta;
     private Ruudukko ruudukko;
@@ -30,7 +30,7 @@ public class PiirraMerkki implements MouseListener {
      * @param alusta Alusta, jonka tapahtumia kuunnellaan
      * @param ruudukko Ruudukko, jonka tilaa päivitetään
      */
-    public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
+    public MerkinPiirtaja(XOAlusta alusta, Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
         this.alusta = alusta;
         this.vuorossa = alusta.getVuorossa();
