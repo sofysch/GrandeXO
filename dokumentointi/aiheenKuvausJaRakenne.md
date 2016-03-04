@@ -21,7 +21,7 @@ Peliä pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme ristiä tai
 **Luokkakaavio:**
 
 
-![Luokkakaavio](dokumentointi/XOLuokkakaavio.png)
+![Luokkakaavio](XOLuokkakaavio.png)
 
 
 **Sekvenssikaaviot**
