@@ -177,7 +177,7 @@ public class XOAlusta extends JPanel {
             risti = ImageIO.read(new File("RISTI.png"));
         } catch (IOException ex) {
             System.out.println(" Ristin ja nollan kuvia ei löydy");
-            System.exit(1);
+            //System.exit(1);
         }
         for (int rivi = 0; rivi < this.ruudukko.getRivit(); rivi++) {
             for (int sarake = 0; sarake < this.ruudukko.getSarakkeet(); sarake++) {
