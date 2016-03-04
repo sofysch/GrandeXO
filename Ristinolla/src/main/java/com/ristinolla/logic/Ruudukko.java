@@ -84,7 +84,7 @@ public class Ruudukko {
 
     /**
      * Metodilla saa tietoonsa yksittäisen ruudun tilan, siis RISTI, NOLLA tai
-     * TYHJA
+     * TYHJA.
      *
      * @param koordinaatit Halutun ruudun koordinaatit
      *

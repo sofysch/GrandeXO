@@ -130,3 +130,22 @@ En osaa testata logiikan piirtämismetodeja, siksi testien rivikattavuus ei ole n
 
 4h Jar-tiedoston uudelleenluonti, ohjeiden kirjoittaminen, checkstyle -korjaukset ja -raportti, koodin siivoilua.
 
+**Su 28.2.**
+
+2h 45 min Voittojen kirjanpito toimii
+
+**Ke 2.3.**
+
+2,5h Refaktorointia, luokkakaavion päivitys
+
+**To 3.3.**
+
+3h Refaktorointia, aloitusvuorot ja viestit menevät oikein.
+
+**Pe 4.3.**
+
+5h 45 min Sekvenssikaavioiden ja luokkakaavioiden päivitys, ohjeiden ja aiheen kuvauksen päivitys, refaktorointia.
+
+
+
+
