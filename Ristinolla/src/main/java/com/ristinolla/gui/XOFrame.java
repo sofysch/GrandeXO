@@ -52,12 +52,4 @@ public class XOFrame implements Runnable {
         container.add(this.valikko, BorderLayout.SOUTH);
     }
 
-    public int getLeveys() {
-        return this.frame.getWidth();
-    }
-
-    public int getKorkeus() {
-        return this.frame.getHeight();
-    }
-
 }
