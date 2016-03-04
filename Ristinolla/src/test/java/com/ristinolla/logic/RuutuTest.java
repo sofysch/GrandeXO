@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ristinolla.logiikka;
+package com.ristinolla.logic;
 
+import com.ristinolla.logic.Ruutu;
 import com.ristinolla.domain.Merkki;
 import java.awt.Graphics;
 import org.junit.After;

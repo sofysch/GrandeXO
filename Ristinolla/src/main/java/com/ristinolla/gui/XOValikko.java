@@ -5,7 +5,7 @@
  */
 package com.ristinolla.gui;
 
-import com.ristinolla.logiikka.Ruudukko;
+import com.ristinolla.logic.Ruudukko;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;

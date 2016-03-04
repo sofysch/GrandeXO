@@ -10,7 +10,7 @@ package com.ristinolla.gui;
  *
  * @author Sofia
  */
-import com.ristinolla.logiikka.Ruudukko;
+import com.ristinolla.logic.Ruudukko;
 import javax.swing.SwingUtilities;
 
 public class RistinollaMain {

@@ -8,7 +8,7 @@ package com.ristinolla.gui;
 import com.ristinolla.domain.Koordinaatit;
 import com.ristinolla.domain.Merkki;
 import com.ristinolla.domain.PelinTila;
-import com.ristinolla.logiikka.Ruudukko;
+import com.ristinolla.logic.Ruudukko;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
