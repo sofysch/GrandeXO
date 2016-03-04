@@ -9,14 +9,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 /**
+ * Sulkee ikkunan ja lopettaa pelin.
  *
  * @author Sofia
  */
 public class PelinSulkija implements MouseListener {
-
-    public PelinSulkija() {
-
-    }
 
     @Override
     public void mouseClicked(MouseEvent me) {

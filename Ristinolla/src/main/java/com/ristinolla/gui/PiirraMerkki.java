@@ -33,7 +33,7 @@ public class PiirraMerkki implements MouseListener {
     public PiirraMerkki(XOAlusta alusta, Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
         this.alusta = alusta;
-        this.vuorossa = alusta.haeVuorossa();
+        this.vuorossa = alusta.getVuorossa();
     }
 
     /**
@@ -49,7 +49,7 @@ public class PiirraMerkki implements MouseListener {
         tarkistaOnkoUusiPeli();
         Koordinaatit koordinaatit = haeKoordinaatit(me);
 
-        if (this.alusta.haePelinTila() == PelinTila.PELAA) {
+        if (this.alusta.getPelinTila() == PelinTila.PELAA) {
 
             if (this.ruudukko.haeRuutu(koordinaatit).onTyhja()) {
                 this.ruudukko.setMerkki(koordinaatit, this.vuorossa);
@@ -57,7 +57,7 @@ public class PiirraMerkki implements MouseListener {
                 paivitaPelinTila(this.vuorossa, koordinaatit);
 
                 this.vuorossa = (this.vuorossa == Merkki.RISTI) ? Merkki.NOLLA : Merkki.RISTI;
-                this.alusta.paivitaViesti(this.alusta.haePelinTila(), this.vuorossa);
+                this.alusta.paivitaViesti(this.alusta.getPelinTila(), this.vuorossa);
             }
         }
         this.alusta.repaint();
@@ -73,21 +73,21 @@ public class PiirraMerkki implements MouseListener {
     public void paivitaPelinTila(Merkki vuorossa, Koordinaatit k) {
         if (this.ruudukko.voitto(vuorossa, k)) {
             if (vuorossa == Merkki.NOLLA) {
-                this.alusta.asetaPelinTila(PelinTila.O_VOITTI);
+                this.alusta.setPelinTila(PelinTila.O_VOITTI);
             } else if (vuorossa == Merkki.RISTI) {
-                this.alusta.asetaPelinTila(PelinTila.X_VOITTI);
+                this.alusta.setPelinTila(PelinTila.X_VOITTI);
             }
         } else if (this.ruudukko.onTaynna()) {
-            this.alusta.asetaPelinTila(PelinTila.TASAPELI);
+            this.alusta.setPelinTila(PelinTila.TASAPELI);
         } else {
-            this.alusta.asetaPelinTila(PelinTila.PELAA);
+            this.alusta.setPelinTila(PelinTila.PELAA);
         }
 
     }
 
     private void tarkistaOnkoUusiPeli() {
         if (this.ruudukko.onTyhja()) {
-            this.alusta.asetaPelinTila(PelinTila.PELAA);
+            this.alusta.setPelinTila(PelinTila.PELAA);
         }
     }
 
@@ -101,6 +101,10 @@ public class PiirraMerkki implements MouseListener {
         return k;
     }
 
+    /**
+     * Palauttaa juuri vuorossa olevan merkin.
+     * @return RISTI tai NOLLA
+     */
     public Merkki juuriVuorossa() {
         return this.vuorossa;
     }

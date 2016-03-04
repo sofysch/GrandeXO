@@ -38,12 +38,12 @@ public class Ruutu {
         this.tila = Merkki.TYHJA;
     }
 
-    public int haeX() {
-        return this.sijainti.haeX();
+    public int getX() {
+        return this.sijainti.getX();
     }
 
-    public int haeY() {
-        return this.sijainti.haeY();
+    public int getY() {
+        return this.sijainti.getY();
     }
 
     /**
@@ -52,10 +52,10 @@ public class Ruutu {
      * @return true, jos tyhjä, muuten false
      */
     public boolean onTyhja() {
-        return haeTila() == (Merkki.TYHJA);
+        return getTila() == (Merkki.TYHJA);
     }
 
-    public Merkki haeTila() {
+    public Merkki getTila() {
         return this.tila;
     }
 
@@ -72,7 +72,7 @@ public class Ruutu {
                 this.tila = Merkki.NOLLA;
             }
         } else {
-            this.tila = this.haeTila();
+            this.tila = this.getTila();
         }
 
     }
