@@ -2,7 +2,7 @@
 
 **Aihe:** Ristinolla. 
 
-Toteutetaan siis Ristinolla-peli. 
+Toteutetaan Ristinolla-peli. 
 
 Peli‰ pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme risti‰ tai ympyr‰‰ samalle pysty-, vaaka- tai vinoriville 3x3 -kokoisessa ruudukossa.
 
@@ -21,7 +21,7 @@ Peli‰ pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme risti‰ tai
 **Luokkakaavio:**
 
 
-![Luokkakaavio](http://yuml.me/f4d70dac)
+![Luokkakaavio](dokumentointi/XOLuokkakaavio.png)
 
 
 **Sekvenssikaaviot**
