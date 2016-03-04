@@ -21,7 +21,7 @@ Peliä pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme ristiä tai
 **Luokkakaavio:**
 
 
-![Luokkakaavio](http://yuml.me/acff6c85)
+![Luokkakaavio](http://yuml.me/f4d70dac)
 
 
 **Sekvenssikaaviot**
@@ -39,7 +39,9 @@ Peliä pelataan 3x3 -kokoisella ruudukolla. Tavoitteena on saada kolme ristiä tai
 Peli koostuu kahdesta logiikkaluokasta, Ruutu ja Ruudukko, kahdesta enum -tyyppisestä luokasta, PelinTila ja Merkki, ja Koordinaatit-luokasta.
 Ruudukko on kaksiulotteinen taulukko ja se koostuu Ruutu-olioista. Ruudulla on koordinaatit ja Merkki-enumluokan avulla määriteltävä tila, eli se sijaitsee tietyssä kohtaa ruudukkoa ja sen tila voi olla 
 risti, nolla tai tyhjä. PelinTila -enumluokan avulla voi määrittää, onko peli kesken vai päättyikö peli jomman kumman merkin voittoon tai tasapeliin.
-Pelin käyttöliittymä koostuu XOFrame-luokasta, joka sisältää pelialustan (XOAlusta) ja valikon (XOValikko). Pelialustalle piirtyy koko peli.
+
+
+Pelin käyttöliittymä koostuu XOIkkuna-luokasta, joka sisältää pelialustan (XOAlusta) ja valikon (XOValikko). Pelialustalle piirtyy koko peli.
 Alustaan liittyy myös pelaajalle välittyvä viesti pelin tilasta ja vuoroista. 
 Pelialustaan liittyy myös MouseListener-rajapinnan toteuttava MerkinPiirtaja, joka käsittelee hiiren klikkauksen ruudukossa.
 Valikkoon liittyvät hiiren klikkauksen käsittelevät luokat UudenPelinAloittaja ja PelinSulkija. UudenPelinAloittaja aloittaa nimensä mukaisesti uuden pelin ja PelinSulkija taas lopettaa pelin ja sulkee ikkunan.

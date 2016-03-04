@@ -16,7 +16,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-public class XOFrame implements Runnable {
+public class XOIkkuna implements Runnable {
 
     private JFrame frame;
     private XOValikko valikko;
@@ -26,7 +26,7 @@ public class XOFrame implements Runnable {
      * Alustetaan valikkko, ruudukko ja ikkunan koko ja väri.
      *
      */
-    public XOFrame() {
+    public XOIkkuna() {
         this.alusta = new XOAlusta();
         this.valikko = new XOValikko(this.alusta);
     }
