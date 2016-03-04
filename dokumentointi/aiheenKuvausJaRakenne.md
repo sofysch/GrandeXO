@@ -1,6 +1,6 @@
 ## Aiheen kuvaus ja rakenne
 
-**Aihe:** Ristinolla. 
+**Aihe:** Ristinolla 
 
 Toteutetaan Ristinolla-peli. 
 
