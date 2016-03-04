@@ -23,7 +23,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Luo pelialustan, eli ruudukon, ja ruudut.
+ * Luo pelialustan, eli piirtää ruudukon ja ruudut.
  *
  * @author Sofia
  */
@@ -44,7 +44,8 @@ public class XOAlusta extends JPanel {
 
     /**
      * Alustetaan tyhjä ruudukko ja lisätään alustalle mouseListener, alustetaan
-     * vuorossa oleva merkki ja pelin tila sekä alustan koko ja taustaväri.
+     * vuorossa oleva merkki ja pelin tila sekä alustan koko ja taustaväri ja
+     * lisäksi näkyvä viesti pelaajalle.
      *
      */
     public XOAlusta() {
@@ -106,11 +107,11 @@ public class XOAlusta extends JPanel {
     }
 
     /**
-     * Päivittää pelaajalle näkyvän viestin pelin tilasta ja kumpi merkki tekee
-     * seuraavan siirron.
+     * Päivittää pelaajalle näkyvän viestin pelin tilasta tai kumpi merkki tekee
+     * seuraavan siirron ja lisää voittojen määrää tarvittaessa.
      *
      * @param tila pelin tila
-     * @param merkki vuorossa oleva merkki
+     * @param merkki vuorossa oleva merkki, RISTI tai NOLLA
      */
     public void paivitaViesti(PelinTila tila, Merkki merkki) {
         switch (tila) {
@@ -152,7 +153,7 @@ public class XOAlusta extends JPanel {
     }
 
     /**
-     * Piirtaa ruudukon.
+     * Piirtää ruudukon.
      *
      * @param g graphics
      */
@@ -176,8 +177,8 @@ public class XOAlusta extends JPanel {
             nolla = ImageIO.read(new File("NOLLA.png"));
             risti = ImageIO.read(new File("RISTI.png"));
         } catch (IOException ex) {
-            System.out.println(" Ristin ja nollan kuvia ei löydy");
-            //System.exit(1);
+            System.out.println("Ristin ja nollan kuvia ei löydy");
+            System.exit(1);
         }
         for (int rivi = 0; rivi < this.ruudukko.getRivit(); rivi++) {
             for (int sarake = 0; sarake < this.ruudukko.getSarakkeet(); sarake++) {

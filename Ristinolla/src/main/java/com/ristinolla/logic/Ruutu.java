@@ -10,7 +10,7 @@ import com.ristinolla.domain.Merkki;
 
 /**
  * Luokka tarjoaa metodeja yksittäisen ruudun tietoihin ja sen piirtämiseen ja
- * muokkaamiseen. Oletustila on TYHJA.
+ * muokkaamiseen. Ruudun oletustila on TYHJA.
  *
  * @author Sofia
  */
@@ -49,7 +49,7 @@ public class Ruutu {
     /**
      * Tarkistaa, onko ruudun tila TYHJA.
      *
-     * @return true, jos tyhjä, muuten false
+     * @return true, jos tila on TYHJA, muuten false
      */
     public boolean onTyhja() {
         return getTila() == (Merkki.TYHJA);
@@ -60,7 +60,7 @@ public class Ruutu {
     }
 
     /**
-     * Asettaa ruudun tilaksi nollan tai ristin, jos sen tila on TYHJA.
+     * Asettaa ruudun tilaksi NOLLA tai RISTI, jos sen tila on TYHJA.
      *
      * @param merkki RISTI tai NOLLA.
      */

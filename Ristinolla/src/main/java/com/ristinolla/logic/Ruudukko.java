@@ -10,7 +10,7 @@ import com.ristinolla.domain.Merkki;
 
 /**
  * Luokka muodostaa ruuduista ruudukon, jota pääsee eri metodien avulla
- * käsittelemään ja piirtämään.
+ * käsittelemään.
  *
  * @author Sofia
  */
@@ -39,9 +39,9 @@ public class Ruudukko {
     }
 
     /**
-     * Metodi tarjoaa mahdollisuuden asettaa tietylle ruudulle tilan, jos se on
-     * tyhjä. Sille voi siis asettaa tilaksi ristin tai nollan.
-     *
+     * Metodi tarjoaa mahdollisuuden asettaa tietylle ruudulle tilan RISTI 
+     * tai NOLLA, jos sen tila on TYHJA. 
+     * 
      * @param koordinaatit Ruudun sijainti ruudukossa
      * @param merkki Mikä merkki ruutuun asetetaan
      */
@@ -69,7 +69,7 @@ public class Ruudukko {
     /**
      * Metodilla saa tiedon onko kaikkien ruutujen tila TYHJA.
      *
-     * @return true, jos on
+     * @return true, jos on, muutoin false.
      */
     public boolean onTyhja() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
@@ -83,8 +83,8 @@ public class Ruudukko {
     }
 
     /**
-     * Metodilla saa tietoonsa yksittäisen ruudun tilan, eli onko siinä risti,
-     * nolla, vai onko se tyhjä.
+     * Metodilla saa tietoonsa yksittäisen ruudun tilan, siis RISTI, NOLLA tai
+     * TYHJA
      *
      * @param koordinaatit Halutun ruudun koordinaatit
      *
@@ -125,29 +125,27 @@ public class Ruudukko {
 
     private boolean tarkistaEkaVinorivi(Merkki merkki) {
         return this.ruudukko[0][0].getTila() == merkki
-                && this.ruudukko[1][1].getTila() == merkki // tarkistaa vinorivin
+                && this.ruudukko[1][1].getTila() == merkki
                 && this.ruudukko[2][2].getTila() == merkki;
     }
 
     private boolean tarkistaRivi(int sarake, Merkki merkki) {
         return this.ruudukko[0][sarake].getTila() == merkki
                 && this.ruudukko[1][sarake].getTila() == merkki
-                && this.ruudukko[2][sarake].getTila() == merkki // tarkistaa rivin
-                ;
+                && this.ruudukko[2][sarake].getTila() == merkki;
     }
 
     private boolean tarkistaSarake(int rivi, Merkki merkki) {
         return this.ruudukko[rivi][0].getTila() == merkki
                 && this.ruudukko[rivi][1].getTila() == merkki
-                && this.ruudukko[rivi][2].getTila() == merkki // tarkistaa sarakkeen
-                ;
+                && this.ruudukko[rivi][2].getTila() == merkki;
     }
 
     /**
-     * Palauttaa tiedon siitä, onko ruudukko täynnä, siis onko kaikkien ruutujen
-     * tila TYHJA.
+     * Palauttaa tiedon siitä, onko ruudukko täynnä, eli onko kaikkien ruutujen
+     * tila RISTI tai NOLLA.
      *
-     * @return true, jos minkään ruudun tila ei ole tyhjä, muutoin false.
+     * @return true, jos minkään ruudun tila ei ole TYHJA, muutoin false.
      */
     public boolean onTaynna() {
         for (int rivi = 0; rivi < this.riveja; rivi++) {
@@ -172,7 +170,7 @@ public class Ruudukko {
      * Palauttaa yksittäisen ruudukon ruudun.
      *
      * @param koordinaatit Halutun ruudun koordinaatit
-     * @return ruutu
+     * @return Ruutu
      */
     public Ruutu haeRuutu(Koordinaatit koordinaatit) {
 

@@ -27,8 +27,8 @@ public class MerkinPiirtaja implements MouseListener {
     /**
      * Konstruktori saa paramentreina pelialustan ja ruudukon.
      *
-     * @param alusta Alusta, jonka tapahtumia kuunnellaan
-     * @param ruudukko Ruudukko, jonka tilaa päivitetään
+     * @param alusta Alusta, jonka tapahtumia kuunnellaan.
+     * @param ruudukko Ruudukko, jonka tilaa päivitetään.
      */
     public MerkinPiirtaja(XOAlusta alusta, Ruudukko ruudukko) {
         this.ruudukko = ruudukko;
@@ -39,7 +39,7 @@ public class MerkinPiirtaja implements MouseListener {
     /**
      * Kun hiirtä klikataan, metodi asettaa valitun ruudun tilan ristiksi tai
      * nollaksi ja päivittää pelin tilan, eli tarkistaa, onko ruudukko täynnä ja
-     * kumpi merkki voitti vai päättyikö peli tasapeliin.
+     * kumpi merkki voitti, vai päättyikö peli tasapeliin.
      *
      * @param me hiiren toiminta
      */

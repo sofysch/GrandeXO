@@ -5,13 +5,13 @@
  */
 package com.ristinolla.gui;
 
-import com.ristinolla.logic.Ruudukko;
+
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen ja pelistä
+ * Luo valikon, joka tarjoaa mahdollisuuden uuden pelin aloittamiseen tai pelistä
  * poistumiseen.
  *
  * @author Sofia

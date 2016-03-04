@@ -24,6 +24,6 @@ public class RistinollaMain {
         XOFrame peli = new XOFrame();
         SwingUtilities.invokeLater(peli);
 
-        // TODO code application logic here
+        
     }
 }
