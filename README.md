@@ -1,7 +1,7 @@
 ## RISTINOLLA
 
-Toteutetaan Ristinolla -peli. Peliä pelataan 3x3 -kokoisella ruudukolla (tai vaihtoehtoisesti suuremmalla ruudukolla, jos ehtii toteuttaa) .
-Perinteisestä versiota pelattaessa tavoitteena on saada kolme omaa merkkiä samalle pysty-,vaaka- tai vinoriville(, isommassa versiossa viisi merkkiä).
+Toteutetaan Ristinolla -peli. Peliä pelataan 3x3 -kokoisella ruudukolla.
+Tavoitteena on saada kolme omaa merkkiä samalle pysty-, vaaka- tai vinoriville.
 
 
 #### DOKUMENTAATIO
@@ -9,3 +9,6 @@ Perinteisestä versiota pelattaessa tavoitteena on saada kolme omaa merkkiä samal
 [Aiheen kuvaus] (dokumentointi/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito] (dokumentointi/tuntikirjanpito.md)
+
+[Ohjeet] (dokumentointi/ohjeet.md)
+
